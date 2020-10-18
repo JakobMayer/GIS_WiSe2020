@@ -113,7 +113,7 @@ div > hr {
 @media screen and (max-width: 600px){
 
     .container {
-        width: 400px;
+        width: 300px;
     }
 
     h1 {
