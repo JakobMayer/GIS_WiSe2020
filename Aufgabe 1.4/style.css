@@ -59,7 +59,7 @@ div h2 {
 }
 
 div > hr {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .mittlere-box {
@@ -89,11 +89,17 @@ div > hr {
 
     h1 {
         font-size: 30px;
+        margin-top: 0;
+    }
+
+    h2 {
+        margin-top: 10;
     }
 
     #image {
         width: 37%;
         margin-bottom: 10px;
+        margin-top: 10;
     }
 
     .mittlere-box {
@@ -113,7 +119,7 @@ div > hr {
 @media screen and (max-width: 600px){
 
     .container {
-        width: 300px;
+        width: 270px;
     }
 
     h1 {
