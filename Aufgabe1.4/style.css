@@ -1,5 +1,5 @@
 * {
-    background-image: url(bg.png);
+    background-image: url(Bilder/bg.png);
 }
 
 .clearfix:after {
@@ -14,17 +14,27 @@ body {
 
 h1 {
     font-size: 40px;
-    transition: color 1.2s linear 0s;
 }
 
-h1:hover {
-    color: gold;
-    text-decoration: underline;
-}
 
 h2:hover {
-    color: orange;
+    color: rgb(253, 135, 0);
+    transition: color 1.2s linear 0s;
     text-decoration: underline;
+}
+
+img {
+    height: auto;
+    width: 800px;
+}
+
+video {
+    width: 800px;
+    height: auto;
+}
+
+hr {
+    margin-bottom: 50px;
 }
 
 #footer-headline {
@@ -44,8 +54,22 @@ h2:hover {
 }
 
 .link {
+    text-decoration:none;
+    margin-left: 15px;
+    margin-bottom: 60px;
+    float: right;
+    color: black;
+}
+
+.link:hover {
+    color: rgb(253, 135, 0);
+    text-decoration: underline;
+}
+
+.internet-link {
     text-decoration: none;
-    color: blue;
+    color: black;
+    text-align: center;
 }
 
 .container {
@@ -82,22 +106,44 @@ div > hr {
     margin-top: 30px;
 }
 
+.soziale-Medien {
+    width: 50%;
+    float:left;
+}
+
+.soziale-Medien img {
+    width: 390px;
+    height: 390px;
+    margin-left: 10px;
+}
+
+
+
 
 /* ------------------- Tablet -------------------*/
 
 @media screen and (max-width: 1024px){
 
     .container {
-        width: 600px;
+        width: 580px;
     }
 
     h1 {
         font-size: 30px;
-        margin-top: 0;
+        margin-top: 30;
     }
 
     h2 {
         margin-top: 10;
+    }
+
+    img {
+        width: 580px;
+    }
+
+    video {
+        width: 580px;
+        height: auto;
     }
 
     #image {
@@ -114,6 +160,16 @@ div > hr {
     .rechte-box {
         width: 100%;
         margin-left: 0;
+    }
+
+    .link {
+        margin-bottom: 30px;
+    }
+
+    .soziale-Medien img {
+        width: 280px;
+        height: 280px;
+        margin-left: 10px;
     }
 }
 
@@ -134,6 +190,15 @@ div > hr {
         font-size: 17px;
     }
 
+    img {
+        width: 270px;
+    }
+
+    video {
+        width: 270px;
+        height: auto;
+    }
+
     #image {
         width: 100%;
         margin-top: 0;
@@ -142,6 +207,17 @@ div > hr {
     .mittlere-box, .rechte-box {
         width: 100%;
         margin-left: 0;
+    }
+
+    .soziale-Medien {
+        width: 100%;
+        float:left;
+    }
+
+    .soziale-Medien img {
+        width: 270px;
+        height: auto;
+        margin-left: 10px;
     }
     
 }
