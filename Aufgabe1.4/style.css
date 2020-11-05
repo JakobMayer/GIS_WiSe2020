@@ -16,7 +16,6 @@ h1 {
     font-size: 40px;
 }
 
-
 h2:hover {
     color: rgb(253, 135, 0);
     transition: color 1.2s linear 0s;
@@ -34,7 +33,11 @@ video {
 }
 
 hr {
-    margin-bottom: 50px;
+    margin-bottom: 5px;
+}
+
+section {
+    margin-bottom: 40px;
 }
 
 #footer-headline {
@@ -53,7 +56,19 @@ hr {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.link {
+.internet-link {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+main {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main section a {
     text-decoration:none;
     margin-left: 15px;
     margin-bottom: 60px;
@@ -61,33 +76,9 @@ hr {
     color: black;
 }
 
-.link:hover {
+main section a:hover {
     color: rgb(253, 135, 0);
     text-decoration: underline;
-}
-
-.internet-link {
-    text-decoration: none;
-    color: black;
-    text-align: center;
-}
-
-.container {
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-div h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-div h2 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-div > hr {
-    margin-top: 40px;
 }
 
 .mittlere-box {
@@ -117,6 +108,10 @@ div > hr {
     margin-left: 10px;
 }
 
+blockquote {
+    font-size: 40px;
+    margin-left: 0;
+}
 
 
 
@@ -124,7 +119,7 @@ div > hr {
 
 @media screen and (max-width: 1024px){
 
-    .container {
+    main {
         width: 580px;
     }
 
@@ -178,7 +173,7 @@ div > hr {
 
 @media screen and (max-width: 600px){
 
-    .container {
+    main {
         width: 270px;
     }
 
