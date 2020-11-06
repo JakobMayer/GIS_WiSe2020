@@ -32,6 +32,14 @@ img {
     width: 800px;
 }
 
+img[alt=Bild-von-einem-Mann] {
+    border-radius: 8px;
+}
+
+img[alt=Bild-von-Blättern] {
+    border-radius: 8px;
+}
+
 video {
     width: 800px;
     height: auto;
@@ -122,6 +130,10 @@ small > b {
     font-family: serif;
 }
 
+h1 + blockquote {
+    font-family: monospace;
+}
+
 
 
 
@@ -188,12 +200,18 @@ small > b {
     }
 
     h1 {
-        font-size: 25px;
+        font-size: 20px;
     }
 
     h2 {
         font-size: 17px;
     }
+
+    h3 {
+        font-size: 10px;
+    }
+
+   
 
     img {
         width: 270px;
@@ -222,7 +240,7 @@ small > b {
     .soziale-Medien img {
         width: 270px;
         height: auto;
-        margin-left: 10px;
+        margin-left: 0px;
     }
     
 }
