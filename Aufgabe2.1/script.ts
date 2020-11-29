@@ -1,12 +1,12 @@
 /*   Aufgabe a)   */
 function multiply(a: number, b: number) {
-    let result: number = a*b;
+    let result: number = a * b;
     console.log(result);
 }
 
 /*   Aufgabe b)   */
 function max(a: number, b: number) {
-    if(a>b){
+    if (a > b) {
         console.log(a);
     } else {
         console.log(b);
@@ -47,9 +47,9 @@ function factorial(n:number){
 
 
 /*   Aufgabe f)   */
-function leapyear(){
-    for(var i=1900; i<=2020; i++){
-        if((i%4==0 && i%100!=0)|| i%400==0){
+function leapyear() {
+    for (var i = 1900; i <= 2020; i++) {
+        if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0) {
             console.log(i);
         }
     }
@@ -82,16 +82,16 @@ for(var i=1; i<100; i++){
 /*   Aufgabe 6d+e  */
 schach(8);
 
-function schach(size:number){
-    for (var i=0; i<size; i++) { 
-        let line:string=' '; 
-        for (var k=0; k<size; k++) { 
-            if((i+k+1)%2==0){
-                line+='#';
+function schach(size: number): void {
+    for (let i: number = 0; i < size; i++) {
+        let line: string = " ";
+        for (let k: number = 0; k < size; k++) {
+            if ((i + k + 1) % 2 == 0) {
+                line += "#";
             } else {
-                line+=' ';
+                line += " ";
             }
-        } 
-        console.log(line); 
-   }
+        }
+        console.log(line);
+    }
 }

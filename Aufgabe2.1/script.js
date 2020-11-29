@@ -73,14 +73,14 @@ for(var i=1; i<100; i++){
 /*   Aufgabe 6d+e  */
 schach(8);
 function schach(size) {
-    for (var i = 0; i < size; i++) {
-        let line = ' ';
-        for (var k = 0; k < size; k++) {
+    for (let i = 0; i < size; i++) {
+        let line = " ";
+        for (let k = 0; k < size; k++) {
             if ((i + k + 1) % 2 == 0) {
-                line += '#';
+                line += "#";
             }
             else {
-                line += ' ';
+                line += " ";
             }
         }
         console.log(line);
