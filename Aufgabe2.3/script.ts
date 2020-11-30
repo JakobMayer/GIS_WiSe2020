@@ -41,6 +41,15 @@ function addRectangle(){
 }
 */
 
+
+
+
+document.querySelector("#Button5").addEventListener("click", deleteLocalStorage);
+function deleteLocalStorage(): void {
+    console.log("Button 5 pressed");
+    localStorage.clear();
+}
+
 namespace A23 {
     /*
     interface Rakete {
@@ -49,6 +58,13 @@ namespace A23 {
         AusgewählterBooster1?: Raketenteil;
     }
     */
+
+    let myJasonOne: string = myJason1;
+    let myObjOne: Raketenteil[] = JSON.parse(myJasonOne);
+    let myJasonTwo: string = myJason2;
+    let myObjTwo: Raketenteil[] = JSON.parse(myJasonTwo);
+    let myJasonThree: string = myJason3;
+    let myObjThree: Raketenteil[] = JSON.parse(myJasonThree);
 
     export interface RaketeWahl {
         spitzeArray: Raketenteil[];
@@ -65,16 +81,22 @@ namespace A23 {
     function open(): void {
         switch (tempString[tempString.length - 1]) {
             case "spitzen.html":
-                bilder(ganzeRakete.spitzeArray);
+                bilder(myObjOne);
                 break;
 
             case "mitte.html":
-                bilder(ganzeRakete.mitteArray);
+                bilder(myObjTwo);
                 break;
 
             case "booster.html":
-                bilder(ganzeRakete.boosterArray);
+                bilder(myObjThree);
                 break;
+
+            case "auswahl.html":
+                for (let i: number = 0; i < localStorage.length; i++) {
+                    let storageKey: string = localStorage.key(i);
+                    console.log(storageKey + " " + localStorage.getItem(storageKey));
+                }
         }
     }
     open();
@@ -96,8 +118,25 @@ namespace A23 {
 
     function auswahlZurückgeben(_event: Event): void {
         let target: HTMLImageElement = <HTMLImageElement>_event.currentTarget;
-        let tempString: string[] = target.src.split("/");
-        console.log("Du hast auf " + tempString[tempString.length - 1] + " geklickt");
+        let temporString: string[] = target.src.split("/");
+        console.log("Du hast auf " + temporString[temporString.length - 1] + " geklickt");
+
+        switch (tempString[tempString.length - 1]) {
+            case "spitzen.html":
+                localStorage.setItem("Spitze", temporString[temporString.length - 1]);
+                break;
+
+            case "mitte.html":
+                localStorage.setItem("Mitte", temporString[temporString.length - 1]);
+                break;
+
+            case "booster.html":
+                localStorage.setItem("Booster", temporString[temporString.length - 1]);
+                break;
+        }
     }
+
+
+
 }
 

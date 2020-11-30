@@ -40,6 +40,11 @@ function addRectangle(){
     }
 }
 */
+document.querySelector("#Button5").addEventListener("click", deleteLocalStorage);
+function deleteLocalStorage() {
+    console.log("Button 5 pressed");
+    localStorage.clear();
+}
 var A23;
 (function (A23) {
     /*
@@ -49,18 +54,29 @@ var A23;
         AusgewählterBooster1?: Raketenteil;
     }
     */
+    let myJasonOne = A23.myJason1;
+    let myObjOne = JSON.parse(myJasonOne);
+    let myJasonTwo = A23.myJason2;
+    let myObjTwo = JSON.parse(myJasonTwo);
+    let myJasonThree = A23.myJason3;
+    let myObjThree = JSON.parse(myJasonThree);
     let tempString = window.location.pathname.split("/");
     function open() {
         switch (tempString[tempString.length - 1]) {
             case "spitzen.html":
-                bilder(A23.ganzeRakete.spitzeArray);
+                bilder(myObjOne);
                 break;
             case "mitte.html":
-                bilder(A23.ganzeRakete.mitteArray);
+                bilder(myObjTwo);
                 break;
             case "booster.html":
-                bilder(A23.ganzeRakete.boosterArray);
+                bilder(myObjThree);
                 break;
+            case "auswahl.html":
+                for (let i = 0; i < localStorage.length; i++) {
+                    let storageKey = localStorage.key(i);
+                    console.log(storageKey + " " + localStorage.getItem(storageKey));
+                }
         }
     }
     open();
@@ -77,8 +93,19 @@ var A23;
     }
     function auswahlZurückgeben(_event) {
         let target = _event.currentTarget;
-        let tempString = target.src.split("/");
-        console.log("Du hast auf " + tempString[tempString.length - 1] + " geklickt");
+        let temporString = target.src.split("/");
+        console.log("Du hast auf " + temporString[temporString.length - 1] + " geklickt");
+        switch (tempString[tempString.length - 1]) {
+            case "spitzen.html":
+                localStorage.setItem("Spitze", temporString[temporString.length - 1]);
+                break;
+            case "mitte.html":
+                localStorage.setItem("Mitte", temporString[temporString.length - 1]);
+                break;
+            case "booster.html":
+                localStorage.setItem("Booster", temporString[temporString.length - 1]);
+                break;
+        }
     }
 })(A23 || (A23 = {}));
 //# sourceMappingURL=script.js.map
