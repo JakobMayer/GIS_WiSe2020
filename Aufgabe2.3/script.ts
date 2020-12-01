@@ -1,4 +1,3 @@
-
 /*  --------  Aufgabe 1 ----------
 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas");
 let context: CanvasRenderingContext2D = canvas.getContext("2d");
@@ -46,16 +45,16 @@ function addRectangle(){
 
 document.querySelector("#Button5").addEventListener("click", deleteLocalStorage);
 function deleteLocalStorage(): void {
-    console.log("Button 5 pressed");
     localStorage.clear();
 }
 
 namespace A23 {
+
     /*
     interface Rakete {
         AusgewählteSpitze?: Raketenteil;
         AusgewählteMitte?: Raketenteil;
-        AusgewählterBooster1?: Raketenteil;
+        AusgewählterBooster?: Raketenteil;
     }
     */
 
@@ -65,6 +64,8 @@ namespace A23 {
     let myObjTwo: Raketenteil[] = JSON.parse(myJasonTwo);
     let myJasonThree: string = myJason3;
     let myObjThree: Raketenteil[] = JSON.parse(myJasonThree);
+
+    let myObjFour: Raketenteil[] = [localStorage.getItem("Spitze"), localStorage.getItem("Spitze"), localStorage.getItem("Spitze")];
 
     export interface RaketeWahl {
         spitzeArray: Raketenteil[];
@@ -93,10 +94,10 @@ namespace A23 {
                 break;
 
             case "auswahl.html":
-                for (let i: number = 0; i < localStorage.length; i++) {
-                    let storageKey: string = localStorage.key(i);
-                    console.log(storageKey + " " + localStorage.getItem(storageKey));
-                }
+                console.log(localStorage.getItem("Spitze"));
+                console.log(localStorage.getItem("Mitte"));
+                console.log(localStorage.getItem("Booster"));
+                bilder(myObjFour);
         }
     }
     open();
@@ -119,7 +120,7 @@ namespace A23 {
     function auswahlZurückgeben(_event: Event): void {
         let target: HTMLImageElement = <HTMLImageElement>_event.currentTarget;
         let temporString: string[] = target.src.split("/");
-        console.log("Du hast auf " + temporString[temporString.length - 1] + " geklickt");
+        //console.log("Du hast auf " + temporString[temporString.length - 1] + " geklickt");
 
         switch (tempString[tempString.length - 1]) {
             case "spitzen.html":

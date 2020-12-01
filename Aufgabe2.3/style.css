@@ -45,6 +45,7 @@ body {
     margin-left:auto;
     margin-right:auto;
 }
+
 img {
     position:relative;
     width:20%;
@@ -70,7 +71,6 @@ img {
     height:180px;
     margin: 240px auto 0 -100px;
 }
-
 
 .ausgewählt-booster{
     height:200px;

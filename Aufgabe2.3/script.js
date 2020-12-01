@@ -42,7 +42,6 @@ function addRectangle(){
 */
 document.querySelector("#Button5").addEventListener("click", deleteLocalStorage);
 function deleteLocalStorage() {
-    console.log("Button 5 pressed");
     localStorage.clear();
 }
 var A23;
@@ -51,7 +50,7 @@ var A23;
     interface Rakete {
         AusgewählteSpitze?: Raketenteil;
         AusgewählteMitte?: Raketenteil;
-        AusgewählterBooster1?: Raketenteil;
+        AusgewählterBooster?: Raketenteil;
     }
     */
     let myJasonOne = A23.myJason1;
@@ -60,6 +59,7 @@ var A23;
     let myObjTwo = JSON.parse(myJasonTwo);
     let myJasonThree = A23.myJason3;
     let myObjThree = JSON.parse(myJasonThree);
+    let myObjFour = [localStorage.getItem("Spitze"), localStorage.getItem("Spitze"), localStorage.getItem("Spitze")];
     let tempString = window.location.pathname.split("/");
     function open() {
         switch (tempString[tempString.length - 1]) {
@@ -73,10 +73,10 @@ var A23;
                 bilder(myObjThree);
                 break;
             case "auswahl.html":
-                for (let i = 0; i < localStorage.length; i++) {
-                    let storageKey = localStorage.key(i);
-                    console.log(storageKey + " " + localStorage.getItem(storageKey));
-                }
+                console.log(localStorage.getItem("Spitze"));
+                console.log(localStorage.getItem("Mitte"));
+                console.log(localStorage.getItem("Booster"));
+                bilder(myObjFour);
         }
     }
     open();
@@ -94,7 +94,7 @@ var A23;
     function auswahlZurückgeben(_event) {
         let target = _event.currentTarget;
         let temporString = target.src.split("/");
-        console.log("Du hast auf " + temporString[temporString.length - 1] + " geklickt");
+        //console.log("Du hast auf " + temporString[temporString.length - 1] + " geklickt");
         switch (tempString[tempString.length - 1]) {
             case "spitzen.html":
                 localStorage.setItem("Spitze", temporString[temporString.length - 1]);
