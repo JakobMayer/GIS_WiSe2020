@@ -5,25 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ausgewählte Rakete</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="styleAusgabe.css" />
     <script src="data.js" defer></script>
     <script src="script.js" defer></script>
   </head>
-  
-  <body>
-    <button onclick="document.location='auswahl.html'" type="button" id="Button1">Ausgewählte Rakete</button>
-    <button onclick="document.location='spitzen.html'" type="button" id="Button2">Spitzen</button>
-    <button onclick="document.location='mitte.html'" type="button" id="Button3">Mittelteile</button>
-    <button onclick="document.location='booster.html'" type="button" id="Button4">Booster</button>
-    <button type="button" id="Button5">Ausgewähltes Löschen</button>
 
+  <body>
+    <div class="button-navigation">
+      <button
+        onclick="document.location='auswahl.html'"
+        type="button"
+        id="Button1"
+      >
+        Ausgewählte Rakete
+      </button>
+      <button
+        onclick="document.location='spitzen.html'"
+        type="button"
+        id="Button2"
+      >
+        Spitzen
+      </button>
+      <button
+        onclick="document.location='mitte.html'"
+        type="button"
+        id="Button3"
+      >
+        Mittelteile
+      </button>
+      <button
+        onclick="document.location='booster.html'"
+        type="button"
+        id="Button4"
+      >
+        Booster
+      </button>
+      <button type="button" id="Button5">Ausgewähltes Löschen</button>
+    </div>
     <div class="container">
       <!--
       <img class="ausgewählt-spitze" src="Bilder/Spitze1.png">
       <img class="ausgewählt-mitte" src="Bilder/Mitte1.png">
       <img class="ausgewählt-booster" src="Bilder/Booster1.png">
       -->
-      
     </div>
-
   </body>
 </html>

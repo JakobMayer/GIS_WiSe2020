@@ -1,8 +1,16 @@
+.button-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+
+
+}
+
+
 #Button1, #Button2, #Button3, #Button4, #Button5 {
-    position: absolute;
-    top:20px;
     font-size:20px;
-    color: rgb(75, 75, 75);
+    color: rgb(99, 99, 99);
     border: none;
     text-decoration: none;
     transition-duration: 0.2s;
@@ -10,34 +18,14 @@
     border-radius: 5px;
 }
 
-#Button1 {
-    left:50px;
-}
 
-#Button2 {
-    right:350px;
-}
-
-#Button3 {
-    right:200px;
-}
-
-#Button4 {
-    right:60px;
-}
-
-#Button5 {
-    left:300px;
-}
 
 #Button1:hover,
 #Button2:hover,
 #Button3:hover,
 #Button4:hover,
 #Button5:hover{
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.103), 0 4px 4px 0 rgba(0, 0, 0, 0.11);
     color:black;
-    border: 1px solid rgb(61, 61, 60);
 }
 
 body {
@@ -46,12 +34,19 @@ body {
     margin-right:auto;
 }
 
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
 img {
     position:relative;
-    width:20%;
-    height:auto;
     float:left;
-    margin: 200px 50px 0px 50px;
+    width: 200px;
+    height: auto;
+
 }
 
 .ausgewählt-spitze,
