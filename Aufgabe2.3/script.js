@@ -59,7 +59,10 @@ var A23;
     let myObjTwo = JSON.parse(myJasonTwo);
     let myJasonThree = A23.myJason3;
     let myObjThree = JSON.parse(myJasonThree);
-    let myObjFour = [localStorage.getItem("Spitze"), localStorage.getItem("Spitze"), localStorage.getItem("Spitze")];
+    let s1 = JSON.parse(localStorage.getItem("Spitze"));
+    let s2 = JSON.parse(localStorage.getItem("Mitte"));
+    let s3 = JSON.parse(localStorage.getItem("Booster"));
+    let fullRocket = [s1, s2, s3];
     let tempString = window.location.pathname.split("/");
     function open() {
         switch (tempString[tempString.length - 1]) {
@@ -73,10 +76,10 @@ var A23;
                 bilder(myObjThree);
                 break;
             case "auswahl.html":
-                console.log(localStorage.getItem("Spitze"));
-                console.log(localStorage.getItem("Mitte"));
-                console.log(localStorage.getItem("Booster"));
-                bilder(myObjFour);
+                //console.log(localStorage.getItem("Spitze"));
+                //console.log(localStorage.getItem("Mitte"));
+                //console.log(localStorage.getItem("Booster"));
+                bilder(fullRocket);
         }
     }
     open();
@@ -97,13 +100,19 @@ var A23;
         //console.log("Du hast auf " + temporString[temporString.length - 1] + " geklickt");
         switch (tempString[tempString.length - 1]) {
             case "spitzen.html":
-                localStorage.setItem("Spitze", temporString[temporString.length - 1]);
+                let r1 = { name: "Ausgewählte Spitze", img: "Bilder/" + temporString[temporString.length - 1] };
+                let myR1 = JSON.stringify(r1);
+                localStorage.setItem("Spitze", myR1);
                 break;
             case "mitte.html":
-                localStorage.setItem("Mitte", temporString[temporString.length - 1]);
+                let r2 = { name: "Ausgewählte Mitte", img: "Bilder/" + temporString[temporString.length - 1] };
+                let myR2 = JSON.stringify(r2);
+                localStorage.setItem("Mitte", myR2);
                 break;
             case "booster.html":
-                localStorage.setItem("Booster", temporString[temporString.length - 1]);
+                let r3 = { name: "Ausgewählter Booster", img: "Bilder/" + temporString[temporString.length - 1] };
+                let myR3 = JSON.stringify(r3);
+                localStorage.setItem("Booster", myR3);
                 break;
         }
     }
