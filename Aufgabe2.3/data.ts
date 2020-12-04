@@ -1,3 +1,4 @@
+/*
 namespace A23 {
 
     let spitze1: Raketenteil = { name: "spitze1", img: "Bilder/Spitze1.png" };
@@ -33,5 +34,8 @@ namespace A23 {
 
     export let ganzeRakete: RaketeWahl = { spitzeArray, mitteArray, boosterArray };
 
+    
+
 
 }
+*/

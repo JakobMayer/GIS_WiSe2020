@@ -1,0 +1,17 @@
+{
+  "spitzeArray": [
+    { "name": "spitze1", "img": "Bilder/Spitze1.png" },
+    { "name": "spitze2", "img": "Bilder/Spitze2.png" },
+    { "name": "spitze3", "img": "Bilder/Spitze3.png" }
+  ],
+  "mitteArray": [
+    { "name": "mitte1", "img": "Bilder/Mitte1.png" },
+    { "name": "mitte2", "img": "Bilder/Mitte2.png" },
+    { "name": "mitte3", "img": "Bilder/Mitte3.png" }
+  ],
+  "boosterArray": [
+    { "name": "booster1", "img": "Bilder/Booster1.png" },
+    { "name": "booster2", "img": "Bilder/Booster2.png" },
+    { "name": "booster3", "img": "Bilder/Booster3.png" }
+  ]
+}

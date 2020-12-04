@@ -46,40 +46,35 @@ function deleteLocalStorage() {
 }
 var A23;
 (function (A23) {
-    /*
-    interface Rakete {
-        AusgewählteSpitze?: Raketenteil;
-        AusgewählteMitte?: Raketenteil;
-        AusgewählterBooster?: Raketenteil;
-    }
-    */
-    let myJasonOne = A23.myJason1;
-    let myObjOne = JSON.parse(myJasonOne);
-    let myJasonTwo = A23.myJason2;
-    let myObjTwo = JSON.parse(myJasonTwo);
-    let myJasonThree = A23.myJason3;
-    let myObjThree = JSON.parse(myJasonThree);
-    let s1 = JSON.parse(localStorage.getItem("Spitze"));
-    let s2 = JSON.parse(localStorage.getItem("Mitte"));
-    let s3 = JSON.parse(localStorage.getItem("Booster"));
+    let s1 = loadRaketeFromString(localStorage.getItem("Spitze"));
+    let s2 = loadRaketeFromString(localStorage.getItem("Mitte"));
+    let s3 = loadRaketeFromString(localStorage.getItem("Booster"));
     let fullRocket = [s1, s2, s3];
+    async function loadDataFromJSON(_url) {
+        let response = await fetch(_url);
+        let result = await response.json();
+        return result;
+    }
+    function loadRaketeFromString(_object) {
+        let myObj = JSON.parse(_object);
+        return myObj;
+    }
     let tempString = window.location.pathname.split("/");
-    function open() {
+    async function open() {
+        let result = await loadDataFromJSON("data.json");
         switch (tempString[tempString.length - 1]) {
             case "spitzen.html":
-                bilder(myObjOne);
+                bilder(result.spitzeArray);
                 break;
             case "mitte.html":
-                bilder(myObjTwo);
+                bilder(result.mitteArray);
                 break;
             case "booster.html":
-                bilder(myObjThree);
+                bilder(result.boosterArray);
                 break;
             case "auswahl.html":
-                //console.log(localStorage.getItem("Spitze"));
-                //console.log(localStorage.getItem("Mitte"));
-                //console.log(localStorage.getItem("Booster"));
                 bilder(fullRocket);
+                break;
         }
     }
     open();
@@ -97,7 +92,6 @@ var A23;
     function auswahlZurückgeben(_event) {
         let target = _event.currentTarget;
         let temporString = target.src.split("/");
-        //console.log("Du hast auf " + temporString[temporString.length - 1] + " geklickt");
         switch (tempString[tempString.length - 1]) {
             case "spitzen.html":
                 let r1 = { name: "Ausgewählte Spitze", img: "Bilder/" + temporString[temporString.length - 1] };

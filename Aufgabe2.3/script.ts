@@ -50,25 +50,23 @@ function deleteLocalStorage(): void {
 
 namespace A23 {
 
-    /*
-    interface Rakete {
-        AusgewählteSpitze?: Raketenteil;
-        AusgewählteMitte?: Raketenteil;
-        AusgewählterBooster?: Raketenteil;
-    }
-    */
-
-    let myJasonOne: string = myJason1;
-    let myObjOne: Raketenteil[] = JSON.parse(myJasonOne);
-    let myJasonTwo: string = myJason2;
-    let myObjTwo: Raketenteil[] = JSON.parse(myJasonTwo);
-    let myJasonThree: string = myJason3;
-    let myObjThree: Raketenteil[] = JSON.parse(myJasonThree);
-
-    let s1: Raketenteil = JSON.parse(localStorage.getItem("Spitze"));
-    let s2: Raketenteil = JSON.parse(localStorage.getItem("Mitte"));
-    let s3: Raketenteil = JSON.parse(localStorage.getItem("Booster"));
+    let s1: Raketenteil = loadRaketeFromString(localStorage.getItem("Spitze"));
+    let s2: Raketenteil = loadRaketeFromString(localStorage.getItem("Mitte"));
+    let s3: Raketenteil = loadRaketeFromString(localStorage.getItem("Booster"));
     let fullRocket: Raketenteil[] = [s1, s2, s3];
+
+
+    async function loadDataFromJSON(_url: RequestInfo): Promise<RaketeWahl> {
+        let response: Response = await fetch(_url);
+        let result: RaketeWahl = await response.json();
+        return result;
+
+    }
+
+    function loadRaketeFromString(_object: string): Raketenteil {
+        let myObj: Raketenteil = JSON.parse(_object);
+        return myObj;
+    }
 
     export interface RaketeWahl {
         spitzeArray: Raketenteil[];
@@ -81,29 +79,30 @@ namespace A23 {
         img: string;
     }
 
+
     let tempString: string[] = window.location.pathname.split("/");
-    function open(): void {
+    async function open(): Promise <void> {
+        let result: RaketeWahl = await loadDataFromJSON("data.json");
         switch (tempString[tempString.length - 1]) {
             case "spitzen.html":
-                bilder(myObjOne);
+                bilder(result.spitzeArray);
                 break;
 
             case "mitte.html":
-                bilder(myObjTwo);
+                bilder(result.mitteArray);
                 break;
 
             case "booster.html":
-                bilder(myObjThree);
+                bilder(result.boosterArray);
                 break;
 
             case "auswahl.html":
-                //console.log(localStorage.getItem("Spitze"));
-                //console.log(localStorage.getItem("Mitte"));
-                //console.log(localStorage.getItem("Booster"));
                 bilder(fullRocket);
+                break;
         }
     }
     open();
+
 
     function bilder(_info: Raketenteil[]): void {
         let selectElement: HTMLDivElement = <HTMLDivElement>document.getElementsByClassName("container")[0];
@@ -123,7 +122,6 @@ namespace A23 {
     function auswahlZurückgeben(_event: Event): void {
         let target: HTMLImageElement = <HTMLImageElement>_event.currentTarget;
         let temporString: string[] = target.src.split("/");
-        //console.log("Du hast auf " + temporString[temporString.length - 1] + " geklickt");
 
         switch (tempString[tempString.length - 1]) {
             case "spitzen.html":
