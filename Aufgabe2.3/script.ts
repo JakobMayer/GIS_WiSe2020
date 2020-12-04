@@ -15,7 +15,6 @@ namespace A23 {
         let response: Response = await fetch(_url);
         let result: RaketeWahl = await response.json();
         return result;
-
     }
 
     function loadRaketeFromString(_object: string): Raketenteil {
@@ -36,6 +35,7 @@ namespace A23 {
 
     // lade die richtigen Bilder auf der richtigen Seite
     let tempString: string[] = window.location.pathname.split("/");
+    console.log(tempString);
     async function open(): Promise<void> {
         let result: RaketeWahl = await loadDataFromJSON("data.json");
         switch (tempString[tempString.length - 1]) {
@@ -53,13 +53,14 @@ namespace A23 {
 
             case "auswahl.html":
                 bilder(wholeRocket);
-                sendCacheToServer("gis-communication.herokuapp.com");
+                sendCacheToServer("https://gis-communication.herokuapp.com");
                 break;
         }
     }
     open();
 
 
+    
     function bilder(_info: Raketenteil[]): void {
         let selectElement: HTMLDivElement = <HTMLDivElement>document.getElementsByClassName("container")[0];
 
@@ -69,6 +70,7 @@ namespace A23 {
             selectElement.appendChild(div);
 
             let optionImage: HTMLImageElement = <HTMLImageElement>document.createElement("img");
+            console.log(_info[i]);
             optionImage.src = _info[i].img;
             div.appendChild(optionImage);
             optionImage.addEventListener("click", auswahlZurückgeben);
@@ -118,7 +120,6 @@ namespace A23 {
             text.setAttribute("style", "color:red");
             text.innerText = serverMessage.error;
         }
-    
         serverResponse.appendChild(text);
     } 
     
@@ -126,27 +127,5 @@ namespace A23 {
         message: string;
         error: string;
     }
-
-    /*
-    async function sendCache(_url: RequestInfo): Promise<void> {
-        let query: URLSearchParams = new URLSearchParams(localStorage);
-        _url = _url + "?" + query.toString();
-        let response: Response = await fetch(_url);
-        let message: ServerMessage = await response.json();
-
-        if (message.message !== undefined) {
-            console.log(message.message);
-        } else if (message.error !== undefined) {
-            console.log(message.error);
-        }
-    }
-
-    interface ServerMessage {
-        message: string;
-        error: string;
-    }
-    */
-
-
 }
 

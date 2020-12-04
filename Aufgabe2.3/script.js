@@ -20,6 +20,7 @@ var A23;
     }
     // lade die richtigen Bilder auf der richtigen Seite
     let tempString = window.location.pathname.split("/");
+    console.log(tempString);
     async function open() {
         let result = await loadDataFromJSON("data.json");
         switch (tempString[tempString.length - 1]) {
@@ -34,7 +35,7 @@ var A23;
                 break;
             case "auswahl.html":
                 bilder(wholeRocket);
-                sendCacheToServer("gis-communication.herokuapp.com");
+                sendCacheToServer("https://gis-communication.herokuapp.com");
                 break;
         }
     }
@@ -45,6 +46,7 @@ var A23;
             let div = document.createElement("div");
             selectElement.appendChild(div);
             let optionImage = document.createElement("img");
+            console.log(_info[i]);
             optionImage.src = _info[i].img;
             div.appendChild(optionImage);
             optionImage.addEventListener("click", auswahlZurückgeben);
@@ -88,24 +90,5 @@ var A23;
         }
         serverResponse.appendChild(text);
     }
-    /*
-    async function sendCache(_url: RequestInfo): Promise<void> {
-        let query: URLSearchParams = new URLSearchParams(localStorage);
-        _url = _url + "?" + query.toString();
-        let response: Response = await fetch(_url);
-        let message: ServerMessage = await response.json();
-
-        if (message.message !== undefined) {
-            console.log(message.message);
-        } else if (message.error !== undefined) {
-            console.log(message.error);
-        }
-    }
-
-    interface ServerMessage {
-        message: string;
-        error: string;
-    }
-    */
 })(A23 || (A23 = {}));
 //# sourceMappingURL=script.js.map
