@@ -1,45 +1,4 @@
 "use strict";
-/*  --------  Aufgabe 1 ----------
-let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas");
-let context: CanvasRenderingContext2D = canvas.getContext("2d");
-interface Rechteck {
-    x: number;
-    y: number;
-    höhe: number;
-    breite: number;
-}
-
-function createRect() {
-    let x = (Math.random() * (400 - 0)) + 0;
-    let y = (Math.random() * (400 - 150)) + 150;
-    let höhe = (Math.random() * (100 - 50)) + 50;
-    let breite = (Math.random() * (100 - 50)) + 50;
-    let maße: number[] = [x, y, höhe, breite];
-    return maße;
-}
-
-function drawRect(array: number[]) {
-    context.strokeRect(array[0], array[1], array[2], array[3]);
-}
-
-let rechteckArray = [createRect(), createRect(), createRect()];
-
-for(let i: number =0; i<rechteckArray.length; i++){
-    drawRect(rechteckArray[i]);
-}
-
-
-// Eventlistener
-document.querySelector('#Button1').addEventListener('click', addRectangle);
-document.querySelector('#Button2').addEventListener('click', function(){location.reload()});
-
-function addRectangle(){
-    rechteckArray.push(createRect());
-    for(let i=0; i<rechteckArray.length; i++){
-        drawRect(rechteckArray[i]);
-    }
-}
-*/
 document.querySelector("#Button5").addEventListener("click", deleteLocalStorage);
 function deleteLocalStorage() {
     localStorage.clear();
@@ -49,7 +8,7 @@ var A23;
     let s1 = loadRaketeFromString(localStorage.getItem("Spitze"));
     let s2 = loadRaketeFromString(localStorage.getItem("Mitte"));
     let s3 = loadRaketeFromString(localStorage.getItem("Booster"));
-    let fullRocket = [s1, s2, s3];
+    let wholeRocket = [s1, s2, s3];
     async function loadDataFromJSON(_url) {
         let response = await fetch(_url);
         let result = await response.json();
@@ -59,6 +18,7 @@ var A23;
         let myObj = JSON.parse(_object);
         return myObj;
     }
+    // lade die richtigen Bilder auf der richtigen Seite
     let tempString = window.location.pathname.split("/");
     async function open() {
         let result = await loadDataFromJSON("data.json");
@@ -73,7 +33,8 @@ var A23;
                 bilder(result.boosterArray);
                 break;
             case "auswahl.html":
-                bilder(fullRocket);
+                bilder(wholeRocket);
+                sendCacheToServer("gis-communication.herokuapp.com");
                 break;
         }
     }
@@ -89,6 +50,7 @@ var A23;
             optionImage.addEventListener("click", auswahlZurückgeben);
         }
     }
+    // Element auswählen und im Local Storage speichern
     function auswahlZurückgeben(_event) {
         let target = _event.currentTarget;
         let temporString = target.src.split("/");
@@ -110,5 +72,40 @@ var A23;
                 break;
         }
     }
+    async function sendCacheToServer(_url) {
+        let query = new URLSearchParams(localStorage);
+        _url = _url + "?" + query.toString();
+        let response = await fetch(_url);
+        let serverMessage = await response.json();
+        let serverResponse = document.getElementById("serverResponse");
+        let text = document.createElement("p");
+        if (serverMessage.message !== undefined) {
+            text.innerText = serverMessage.message;
+        }
+        if (serverMessage.error !== undefined) {
+            text.setAttribute("style", "color:red");
+            text.innerText = serverMessage.error;
+        }
+        serverResponse.appendChild(text);
+    }
+    /*
+    async function sendCache(_url: RequestInfo): Promise<void> {
+        let query: URLSearchParams = new URLSearchParams(localStorage);
+        _url = _url + "?" + query.toString();
+        let response: Response = await fetch(_url);
+        let message: ServerMessage = await response.json();
+
+        if (message.message !== undefined) {
+            console.log(message.message);
+        } else if (message.error !== undefined) {
+            console.log(message.error);
+        }
+    }
+
+    interface ServerMessage {
+        message: string;
+        error: string;
+    }
+    */
 })(A23 || (A23 = {}));
 //# sourceMappingURL=script.js.map

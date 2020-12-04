@@ -1,6 +1,6 @@
-/*
-namespace A23 {
 
+namespace A23 {
+/*
     let spitze1: Raketenteil = { name: "spitze1", img: "Bilder/Spitze1.png" };
     let spitze2: Raketenteil = { name: "spitze2", img: "Bilder/Spitze2.png" };
     let spitze3: Raketenteil = { name: "spitze3", img: "Bilder/Spitze3.png" };
@@ -36,6 +36,5 @@ namespace A23 {
 
     
 
-
-}
 */
+}
