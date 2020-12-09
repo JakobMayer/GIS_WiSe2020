@@ -1,0 +1,21 @@
+{
+  "name": "mypackage",
+  "version": "1.0.0",
+  "description": "package for gis",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node Aufgabe3.1/script.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakobMayer/GIS_WiSe2020.git"
+  },
+  "author": "jakob mayer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JakobMayer/GIS_WiSe2020/issues"
+  },
+  "homepage": "https://github.com/JakobMayer/GIS_WiSe2020#readme"
+}
