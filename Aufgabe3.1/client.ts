@@ -12,7 +12,7 @@ async function submitToServer(_event: Event): Promise<void> {
     let query: URLSearchParams = new URLSearchParams(<any>formData);
 
     url = url + "?" + query.toString();
-    console.log(url);
+    //console.log(url);
 
     let response: Response = await fetch(url);
     let responseText: string = await response.text();

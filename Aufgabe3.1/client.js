@@ -7,7 +7,7 @@ async function submitToServer(_event) {
     let formData = new FormData(document.forms[0]);
     let query = new URLSearchParams(formData);
     url = url + "?" + query.toString();
-    console.log(url);
+    //console.log(url);
     let response = await fetch(url);
     let responseText = await response.text();
     console.log(response);
