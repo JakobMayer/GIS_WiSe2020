@@ -6,5 +6,17 @@
 }
 
 input {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+button {
+  font-size: 15px;
 }
