@@ -2,7 +2,7 @@
 let registerForm = document.getElementById("register-form");
 let registerButton = document.getElementById("send-button");
 registerButton.addEventListener("click", submitToServer);
-let url = "https://gisapplication.herokuapp.com";
+let url = "https://gisapplication.herokuapp.com/";
 async function submitToServer(_event) {
     let formData = new FormData(document.forms[0]);
     let query = new URLSearchParams(formData);

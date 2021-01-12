@@ -4,7 +4,7 @@ let registerForm: HTMLFormElement = <HTMLFormElement>document.getElementById("re
 
 let registerButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send-button");
 registerButton.addEventListener("click", submitToServer);
-let url: string = "https://gisapplication.herokuapp.com";
+let url: string = "https://gisapplication.herokuapp.com/";
 
 
 async function submitToServer(_event: Event): Promise<void> {
