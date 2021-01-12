@@ -24,7 +24,13 @@ var P_3_1Server;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         _response.write(_request.url);
-        console.log(_request.url);
+        let formData = new FormData(document.forms[0]);
+        for (let entry of formData) {
+            console.log(entry);
+            console.log("name: " + entry[0]);
+            console.log("value: " + entry[1]);
+        }
+        //console.log(_request.url);
         _response.end();
         // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
     }
