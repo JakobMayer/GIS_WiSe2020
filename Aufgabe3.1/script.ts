@@ -26,10 +26,7 @@ export namespace P_3_1Server {
         _response.setHeader("Access-Control-Allow-Origin", "*");
         _response.write(_request.url);
         
-        let formData: FormData = new FormData(document.forms[0]);
-        console.log(formData);
-        
-        //console.log(_request.url);
+        console.log(_request.url);
         _response.end();
         // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
     }
