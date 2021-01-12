@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.P_3_1Server = void 0;
 //Http Modul importieren
 const Http = require("http");
+const Url = require("url");
 var P_3_1Server;
 (function (P_3_1Server) {
     console.log("Starting server");
@@ -24,7 +25,15 @@ var P_3_1Server;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         _response.write(_request.url);
-        console.log("Was geht");
+        if (_request.url) {
+            let q = Url.parse(_request.url, true);
+            for (let key in q.query) {
+                _response.write(key + ":" + q.query[key] + "<br/>");
+            }
+            let stringJSON = JSON.stringify(q.query);
+            _response.write(stringJSON);
+        }
+        console.log(_request.url);
         _response.end();
         // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
     }
