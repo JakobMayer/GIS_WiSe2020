@@ -11,6 +11,6 @@ async function submitToServer(_event) {
     let response = await fetch(url);
     let responseText = await response.text();
     console.log(response);
-    alert("Antwort: " + responseText);
+    console.log("Response Text: " + responseText);
 }
 //# sourceMappingURL=client.js.map
