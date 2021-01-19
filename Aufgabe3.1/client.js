@@ -11,7 +11,7 @@ async function submitToServer(_event) {
     let response = await fetch(url);
     let responseText = await response.text();
     console.log(response);
-    alert("Response Text: " + responseText);
+    //alert("Response Text: " + responseText);
     let selectElement = document.getElementsByClassName("ausgabe")[0];
     //let p = document.createElement("p");
     selectElement.appendChild(document.createTextNode(responseText));

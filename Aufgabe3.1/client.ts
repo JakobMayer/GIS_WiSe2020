@@ -19,7 +19,7 @@ async function submitToServer(_event: Event): Promise<void> {
     let responseText: string = await response.text();
     console.log(response);
     
-    alert("Response Text: " + responseText);
+    //alert("Response Text: " + responseText);
 
     
     
