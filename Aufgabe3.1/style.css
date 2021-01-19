@@ -38,7 +38,12 @@ label {
   color: rgb(102, 102, 102);
 }
 
-.menü {
-  width:100%;
+.ausgabe {
+  margin-top:70px;
 }
+
+#register-form {
+  width: 50%;
+}
+
 

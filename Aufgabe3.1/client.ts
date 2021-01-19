@@ -21,5 +21,17 @@ async function submitToServer(_event: Event): Promise<void> {
     
     alert("Response Text: " + responseText);
 
+    
+    
+    
+
+    let selectElement: HTMLDivElement = <HTMLDivElement>document.getElementsByClassName("ausgabe")[0];
+    //let p = document.createElement("p");
+    selectElement.appendChild(document.createTextNode(responseText));
+
+   
+    
+    
+
 
 }
