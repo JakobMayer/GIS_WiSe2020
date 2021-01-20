@@ -37,7 +37,7 @@ var P_3_1Server;
                     _response.write(key + ":" + q.query[key] + "<br/>");
                 }
             }
-            if (q.pathname == "json") {
+            if (q.pathname == "/json") {
                 let stringJSON = JSON.stringify(q.query);
                 _response.write(stringJSON);
             }

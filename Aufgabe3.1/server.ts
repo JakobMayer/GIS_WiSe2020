@@ -44,9 +44,9 @@ export namespace P_3_1Server {
                 }
             }
 
-            if (q.pathname == "json"){
+            if (q.pathname == "/json") {
                 let stringJSON: string = JSON.stringify(q.query);
-                _response.write(stringJSON);
+             _response.write(stringJSON);
             }
             
         }
