@@ -5,13 +5,13 @@ import * as Url from "url";
 import * as Mongo from "mongodb";
 
 export namespace P_3_1Server {
-    
+
     async function conectMongo(): Promise<void> {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient("localhost:27017");
         await mongoClient.connect();
     }
     conectMongo();
-    
+
 
     console.log("Starting server");
     //environment mit der Angabe der Portnummer von heroku
@@ -41,22 +41,22 @@ export namespace P_3_1Server {
 
             if (q.pathname == "/index") {
                 for (let key in q.query) {
-                    _response.write (key + ":" + q.query[key] + "<br/>");
+                    _response.write(key + ":" + q.query[key] + "<br/>");
                 }
             }
 
             if (q.pathname == "/json") {
                 let stringJSON: string = JSON.stringify(q.query);
-             _response.write(stringJSON);
+                _response.write(stringJSON);
             }
-            
+
         }
 
         _response.end();
         // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
     }
 
-    interface user {
+    interface User {
         "vorname": string;
         "nachname": string;
         "e-mail": string;
@@ -66,5 +66,5 @@ export namespace P_3_1Server {
     let databaseUrl: string = "mongodb+srv://Beispiel_User:<password>@cluster2000.9tkvz.mongodb.net/<dbname>?retryWrites=true&w=majority";
     let user: Mongo.Collection;
 
-   
+
 }
