@@ -6,7 +6,7 @@ let url = "https://gisapplication.herokuapp.com/";
 async function submitToServer(_event) {
     let formData = new FormData(document.forms[0]);
     let query = new URLSearchParams(formData);
-    url = url + "json?" + query.toString();
+    url = url + "html?" + query.toString();
     console.log(url);
     let response = await fetch(url);
     let responseText = await response.text();

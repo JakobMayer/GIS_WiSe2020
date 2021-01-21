@@ -9,7 +9,7 @@ async function submitToServer(_event: Event): Promise<void> {
     let formData: FormData = new FormData(document.forms[0]);
     let query: URLSearchParams = new URLSearchParams(<any>formData);
 
-    url = url + "json?" + query.toString();
+    url = url + "html?" + query.toString();
     console.log(url);
 
     
