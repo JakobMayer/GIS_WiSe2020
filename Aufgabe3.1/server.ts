@@ -37,6 +37,7 @@ export namespace P_3_1Server {
 
         if (_request.url) {
             let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+            console.log(q.pathname);
 
             if (q.pathname == "/html") {
                 for (let key in q.query) {
@@ -54,6 +55,16 @@ export namespace P_3_1Server {
         _response.end();
         // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
     }
+
+    interface user {
+        "vorname": string;
+        "nachname": string;
+        "e-mail": string;
+        "passwort": string;
+    }
+
+    let databaseUrl: string = "mongodb+srv://Beispiel_User:<password>@cluster2000.9tkvz.mongodb.net/<dbname>?retryWrites=true&w=majority";
+    let user: Mongo.Collection;
 
    
 }
