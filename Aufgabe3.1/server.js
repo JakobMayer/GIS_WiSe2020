@@ -32,13 +32,12 @@ var P_3_1Server;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let q = Url.parse(_request.url, true);
-            console.log(q.pathname);
             if (q.pathname == "/html") {
                 for (let key in q.query) {
                     _response.write(key + ":" + q.query[key] + "<br/>");
                 }
             }
-            if (q.pathname == "/json") {
+            if (q.pathname == "json") {
                 let stringJSON = JSON.stringify(q.query);
                 _response.write(stringJSON);
             }
@@ -46,7 +45,5 @@ var P_3_1Server;
         _response.end();
         // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
     }
-    let databaseUrl = "mongodb+srv://Beispiel_User:<password>@cluster2000.9tkvz.mongodb.net/<dbname>?retryWrites=true&w=majority";
-    let user;
 })(P_3_1Server = exports.P_3_1Server || (exports.P_3_1Server = {}));
 //# sourceMappingURL=server.js.map
