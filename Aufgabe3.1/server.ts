@@ -27,14 +27,14 @@ export namespace P_3_1Server {
     }
 
     let mongoUrl: string = "mongodb+srv://Beispiel_User:12345@cluster2000.9tkvz.mongodb.net/Test?retryWrites=true&w=majority";
-    let user: Mongo.Collection;
+    let userCollection: Mongo.Collection;
 
 
     async function conectMongo(_url: string): Promise<void> {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoUrl);
         await mongoClient.connect();
         console.log("Mongo verbunden");
-        user = mongoClient.db("Formulare").collection("User");
+        userCollection = mongoClient.db("Test").collection("User");
     }
     conectMongo(mongoUrl);
 
@@ -62,9 +62,8 @@ export namespace P_3_1Server {
                 /*  for (let key in q.query) {
                     _response.write(key + ":" + q.query[key] + "<br/>");
                 } */
+                //console.log("hier");
                 
-
-
                 let user: User = {
                     "vorname": data.vorname,
                     "nachname": data.nachname,
@@ -72,7 +71,7 @@ export namespace P_3_1Server {
                     "passwort": data.passwort
                 };
 
-                await registriereUser(user);
+                _response.write (await registriereUser(user));
             }
 
 
@@ -90,29 +89,28 @@ export namespace P_3_1Server {
         // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
     }
 
-    async function registriereUser(_user: User): Promise<void> {
+    async function registriereUser(_user: User): Promise<string> {
         //überprüfen ob es schon ein Konto mit der Mailadresse gibt
         //countDocuments
 
-        let countDocuments: number = await user.countDocuments({ "email": _user.email });
+        let countDocuments: number = await userCollection.countDocuments({ "email": _user.email });
 
         if (countDocuments > 0) {
-            console.log("Mailadresse bereits vergeben");
+            return "Mailadresse bereits vergeben";
             //TODO: An Client weitergeben
         } else {
-            await user.insertOne(_user);
+            await userCollection.insertOne(_user);
+            return "noch nochts da";
         }
     }
 
     async function anmelden(_email: string, _passwort: string): Promise<string> {
 
-        let countDocuments: number = await user.countDocuments({ "email": _email, "passwort": _passwort });
+        let countDocuments: number = await userCollection.countDocuments({ "email": _email, "passwort": _passwort });
 
         if (countDocuments > 0) {
-            console.log("angemeldet");
             return "angemeldet";
         } else {
-            console.log("falsche Daten eingegeben");
             return "falsche Daten eingegeben";
         }
 

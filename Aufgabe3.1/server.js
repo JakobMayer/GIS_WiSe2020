@@ -19,12 +19,12 @@ var P_3_1Server;
     server.addListener("listening", handleListen);
     server.listen(port);
     let mongoUrl = "mongodb+srv://Beispiel_User:12345@cluster2000.9tkvz.mongodb.net/Test?retryWrites=true&w=majority";
-    let user;
+    let userCollection;
     async function conectMongo(_url) {
         let mongoClient = new Mongo.MongoClient(mongoUrl);
         await mongoClient.connect();
         console.log("Mongo verbunden");
-        user = mongoClient.db("Formulare").collection("User");
+        userCollection = mongoClient.db("Test").collection("User");
     }
     conectMongo(mongoUrl);
     function handleListen() {
@@ -42,13 +42,14 @@ var P_3_1Server;
                 /*  for (let key in q.query) {
                     _response.write(key + ":" + q.query[key] + "<br/>");
                 } */
+                //console.log("hier");
                 let user = {
                     "vorname": data.vorname,
                     "nachname": data.nachname,
                     "email": data.email,
                     "passwort": data.passwort
                 };
-                await registriereUser(user);
+                _response.write(await registriereUser(user));
             }
             else if (q.pathname == "/einloggen") {
                 //let stringJSON: string = JSON.stringify(q.query);
@@ -62,23 +63,22 @@ var P_3_1Server;
     async function registriereUser(_user) {
         //überprüfen ob es schon ein Konto mit der Mailadresse gibt
         //countDocuments
-        let countDocuments = await user.countDocuments({ "email": _user.email });
+        let countDocuments = await userCollection.countDocuments({ "email": _user.email });
         if (countDocuments > 0) {
-            console.log("Mailadresse bereits vergeben");
+            return "Mailadresse bereits vergeben";
             //TODO: An Client weitergeben
         }
         else {
-            await user.insertOne(_user);
+            await userCollection.insertOne(_user);
+            return "noch nochts da";
         }
     }
     async function anmelden(_email, _passwort) {
-        let countDocuments = await user.countDocuments({ "email": _email, "passwort": _passwort });
+        let countDocuments = await userCollection.countDocuments({ "email": _email, "passwort": _passwort });
         if (countDocuments > 0) {
-            console.log("angemeldet");
             return "angemeldet";
         }
         else {
-            console.log("falsche Daten eingegeben");
             return "falsche Daten eingegeben";
         }
     }
