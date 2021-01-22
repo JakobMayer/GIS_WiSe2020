@@ -26,12 +26,12 @@ export namespace P_3_1Server {
         "passwort": string;
     }
 
-    let mongoUrl: string = "mongodb+srv://Beispiel_User:<password>@cluster2000.9tkvz.mongodb.net/<dbname>?retryWrites=true&w=majority";
+    let mongoUrl: string = "mongodb+srv://Beispiel_User:12345@cluster2000.9tkvz.mongodb.net/Test?retryWrites=true&w=majority";
     let user: Mongo.Collection;
 
 
     async function conectMongo(_url: string): Promise<void> {
-        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient("localhost:27017");
+        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoUrl);
         await mongoClient.connect();
         console.log("Mongo verbunden");
         user = mongoClient.db("Formulare").collection("User");
@@ -43,75 +43,84 @@ export namespace P_3_1Server {
         console.log("Listening");
     }
 
+    interface Query {
+        [key: string]: string;
+    }
 
-    function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
+    async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
         console.log("I hear you!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
 
         if (_request.url) {
             let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+            //console.log(q);
 
+            let data: Query = <Query>q.query;
 
             if (q.pathname == "/index") {
                 /*  for (let key in q.query) {
                     _response.write(key + ":" + q.query[key] + "<br/>");
                 } */
-                let queryParameters: Query = <Query>q.query;
+                
+
 
                 let user: User = {
-
-                    "vorname": queryParameters.vorname as string,
-                    "nachname": queryParameters.nachname as string,
-                    "email": queryParameters.email as string,
-                    "passwort": queryParameters.passwort as string
+                    "vorname": data.vorname,
+                    "nachname": data.nachname,
+                    "email": data.email,
+                    "passwort": data.passwort
                 };
 
                 await registriereUser(user);
-
-
-
-                if (q.pathname == "/einloggen") {
-                    //let stringJSON: string = JSON.stringify(q.query);
-                    //_response.write(stringJSON);
-
-                    let queryParameters: Query = <Query>q.query;
-                    await anmelden(queryParameters.email as string, queryParameters.passwort as string);
-                }
-
             }
 
-            _response.end();
-            // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
-        }
 
-        async function registriereUser(_user: User): Promise<void> {
-            //überprüfen ob es schon ein Konto mit der Mailadresse gibt
-            //countDocuments
+            else if (q.pathname == "/einloggen") {
+                //let stringJSON: string = JSON.stringify(q.query);
+                //_response.write(stringJSON);
 
-            let countDocuments: number = await user.countDocuments({ "email": _user.email });
+                _response.write(await anmelden(data.email, data.passwort));
 
-            if (countDocuments > 0) {
-                console.log("Mailadresse bereits vergeben");
-                //TODO: An Client weitergeben
-            } else {
-                await user.insertOne(_user);
-            }
-        }
-
-        async function anmelden(_email: string, _passwort: string): Promise<void> {
-
-            let countDocuments: number = await user.countDocuments({ "email": _email, "passwort": _passwort });
-
-            if (countDocuments > 0) {
-                console.log("angemeldet");
-            } else {
-                console.log("falsche Daten eingegeben");
             }
 
         }
 
+        _response.end();
+        // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
+    }
 
+    async function registriereUser(_user: User): Promise<void> {
+        //überprüfen ob es schon ein Konto mit der Mailadresse gibt
+        //countDocuments
 
+        let countDocuments: number = await user.countDocuments({ "email": _user.email });
+
+        if (countDocuments > 0) {
+            console.log("Mailadresse bereits vergeben");
+            //TODO: An Client weitergeben
+        } else {
+            await user.insertOne(_user);
+        }
+    }
+
+    async function anmelden(_email: string, _passwort: string): Promise<string> {
+
+        let countDocuments: number = await user.countDocuments({ "email": _email, "passwort": _passwort });
+
+        if (countDocuments > 0) {
+            console.log("angemeldet");
+            return "angemeldet";
+        } else {
+            console.log("falsche Daten eingegeben");
+            return "falsche Daten eingegeben";
+        }
+
+        
 
     }
+
+
+
+
+}
