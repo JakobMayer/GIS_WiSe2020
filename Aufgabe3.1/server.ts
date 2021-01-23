@@ -33,7 +33,7 @@ export namespace P_3_1Server {
     async function conectMongo(_url: string): Promise<void> {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoUrl);
         await mongoClient.connect();
-        console.log("Mongo verbunden");
+        //console.log("Mongo verbunden");
         userCollection = mongoClient.db("Test").collection("User");
     }
     conectMongo(mongoUrl);
@@ -48,7 +48,7 @@ export namespace P_3_1Server {
     }
 
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
-        console.log(_request.url);
+        console.log("I hear you!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
 

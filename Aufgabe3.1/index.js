@@ -13,8 +13,8 @@ var registrieren;
         //console.log(url);
         let response = await fetch(fetchUrl);
         let responseText = await response.text();
-        console.log(response);
-        console.log("Response Text: " + responseText);
+        //console.log(response);
+        //console.log("Response Text: " + responseText);
         //Antwort auf der Seite ausgeben
         let selectElement = document.querySelector(".ausgabe");
         selectElement.appendChild(document.createTextNode(responseText));

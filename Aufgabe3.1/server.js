@@ -23,7 +23,7 @@ var P_3_1Server;
     async function conectMongo(_url) {
         let mongoClient = new Mongo.MongoClient(mongoUrl);
         await mongoClient.connect();
-        console.log("Mongo verbunden");
+        //console.log("Mongo verbunden");
         userCollection = mongoClient.db("Test").collection("User");
     }
     conectMongo(mongoUrl);
@@ -31,7 +31,7 @@ var P_3_1Server;
         console.log("Listening");
     }
     async function handleRequest(_request, _response) {
-        console.log(_request.url);
+        console.log("I hear you!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {

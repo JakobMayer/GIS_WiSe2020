@@ -17,8 +17,8 @@ namespace registrieren {
 
         let response: Response = await fetch(fetchUrl);
         let responseText: string = await response.text();
-        console.log(response);
-        console.log("Response Text: " + responseText);
+        //console.log(response);
+        //console.log("Response Text: " + responseText);
 
         //Antwort auf der Seite ausgeben
         let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
