@@ -4,7 +4,8 @@ namespace anzeigen {
 
     //let anzeigeUrl: string = "https://gisapplication.herokuapp.com/";
     let anzeigeUrl: string = "http://localhost:8100/";
-    let userCollection: Mongo.Collection;
+    let fetchUrl: string = anzeigeUrl + "anzeige";
+
 
     async function accountsAnzeigen(): Promise<void> {
         console.log("Nutzerkonten werden angezeigt");
@@ -17,23 +18,25 @@ namespace anzeigen {
             "passwort": string;
         }
 
-        let response: Response = await fetch(anzeigeUrl);
+        let response: Response = await fetch(fetchUrl);
+
+
 
         let accounts: User[] = await response.json();
+
+        console.log(accounts);
         //let responseText: string = await response.text();
         let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
 
-        for (userCollection of accounts) {
-            selectElement.appendChild(document.createTextNode(userCollection.vorname + " " + userCollection.nachname));
+        for (let userCollection of accounts) {
+            let paragraph: HTMLDivElement = document.createElement("div");
+            paragraph.innerText = userCollection.vorname + " " + userCollection.nachname;
+            
+            selectElement.appendChild(paragraph);
         }
 
 
 
-
-
-
-
-        
     }
 
 

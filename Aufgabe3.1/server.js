@@ -31,7 +31,7 @@ var P_3_1Server;
         console.log("Listening");
     }
     async function handleRequest(_request, _response) {
-        console.log("I hear you!");
+        console.log(_request.url);
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
