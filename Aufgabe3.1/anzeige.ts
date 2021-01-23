@@ -2,8 +2,8 @@ namespace anzeigen {
     let anzeigeButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("anzeige-button");
     anzeigeButton.addEventListener("click", accountsAnzeigen);
 
-    //let anzeigeUrl: string = "https://gisapplication.herokuapp.com/";
-    let anzeigeUrl: string = "http://localhost:8100/";
+    let anzeigeUrl: string = "https://gisapplication.herokuapp.com/";
+    //let anzeigeUrl: string = "http://localhost:8100/";
     let fetchUrl: string = anzeigeUrl + "anzeige";
 
 

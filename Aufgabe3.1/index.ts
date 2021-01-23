@@ -4,8 +4,8 @@ namespace registrieren {
     let anmeldeButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send-button");
     anmeldeButton.addEventListener("click", submitToServer);
 
-    //let registerUrl: string = "https://gisapplication.herokuapp.com/";
-    let registerUrl: string = "http://localhost:8100/";
+    let registerUrl: string = "https://gisapplication.herokuapp.com/";
+    //let registerUrl: string = "http://localhost:8100/";
 
     async function submitToServer(_event: Event): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);

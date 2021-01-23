@@ -3,8 +3,8 @@ var anzeigen;
 (function (anzeigen) {
     let anzeigeButton = document.getElementById("anzeige-button");
     anzeigeButton.addEventListener("click", accountsAnzeigen);
-    //let anzeigeUrl: string = "https://gisapplication.herokuapp.com/";
-    let anzeigeUrl = "http://localhost:8100/";
+    let anzeigeUrl = "https://gisapplication.herokuapp.com/";
+    //let anzeigeUrl: string = "http://localhost:8100/";
     let fetchUrl = anzeigeUrl + "anzeige";
     async function accountsAnzeigen() {
         console.log("Nutzerkonten werden angezeigt");

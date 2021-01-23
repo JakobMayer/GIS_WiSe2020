@@ -3,8 +3,8 @@ let anmeldeForm: HTMLFormElement = <HTMLFormElement>document.getElementById("reg
 let anmeldeButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send-button");
 anmeldeButton.addEventListener("click", submitToServer);
 
-//let anmeldeUrl: string = "https://gisapplication.herokuapp.com/";
-let anmeldeUrl: string = "http://localhost:8100/";
+let anmeldeUrl: string = "https://gisapplication.herokuapp.com/";
+//let anmeldeUrl: string = "http://localhost:8100/";
 
 async function submitToServer(_event: Event): Promise<void> {
     let formData: FormData = new FormData(document.forms[0]);
