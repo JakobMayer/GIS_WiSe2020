@@ -83,6 +83,12 @@ export namespace P_3_1Server {
 
             }
 
+
+            else if (q.pathname == "/anzeige") {
+                let accounts: User[] = await accountsAnzeigen();
+                _response.write(JSON.stringify(accounts));
+            }
+
         }
 
         _response.end();
@@ -100,7 +106,7 @@ export namespace P_3_1Server {
             //TODO: An Client weitergeben
         } else {
             await userCollection.insertOne(_user);
-            return "noch nochts da";
+            return "Neuer Account erstellt";
         }
     }
 
@@ -113,9 +119,11 @@ export namespace P_3_1Server {
         } else {
             return "falsche Daten eingegeben";
         }
+    }
 
-        
-
+    async function accountsAnzeigen(): Promise<User[]> {
+        let accounts: User[] = await userCollection.find().toArray();
+        return accounts;
     }
 
 

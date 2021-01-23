@@ -23,5 +23,6 @@ async function submitToServer(_event: Event): Promise<void> {
     //Antwort auf der Seite ausgeben
     let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
     selectElement.appendChild(document.createTextNode(responseText));
+    //selectElement.appendChild(document.createTextNode("\n"));
 
 }

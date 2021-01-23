@@ -56,6 +56,10 @@ var P_3_1Server;
                 //_response.write(stringJSON);
                 _response.write(await anmelden(data.email, data.passwort));
             }
+            else if (q.pathname == "/anzeige") {
+                let accounts = await accountsAnzeigen();
+                _response.write(JSON.stringify(accounts));
+            }
         }
         _response.end();
         // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
@@ -70,7 +74,7 @@ var P_3_1Server;
         }
         else {
             await userCollection.insertOne(_user);
-            return "noch nochts da";
+            return "Neuer Account erstellt";
         }
     }
     async function anmelden(_email, _passwort) {
@@ -81,6 +85,10 @@ var P_3_1Server;
         else {
             return "falsche Daten eingegeben";
         }
+    }
+    async function accountsAnzeigen() {
+        let accounts = await userCollection.find().toArray();
+        return accounts;
     }
 })(P_3_1Server = exports.P_3_1Server || (exports.P_3_1Server = {}));
 //# sourceMappingURL=server.js.map
