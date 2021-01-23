@@ -11,7 +11,7 @@ async function submitToServer(_event) {
     //console.log(url);
     let response = await fetch(fetchUrl);
     let responseText = await response.text();
-    console.log(response);
+    //console.log(response);
     //alert("Response Text: " + responseText);
     //Antwort auf der Seite ausgeben
     let selectElement = document.querySelector(".ausgabe");

@@ -17,7 +17,7 @@ async function submitToServer(_event: Event): Promise<void> {
 
     let response: Response = await fetch(fetchUrl);
     let responseText: string = await response.text();
-    console.log(response);
+    //console.log(response);
     //alert("Response Text: " + responseText);
 
     //Antwort auf der Seite ausgeben
