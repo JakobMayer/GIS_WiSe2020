@@ -1,7 +1,7 @@
 "use strict";
 var registrieren;
 (function (registrieren) {
-    let registerForm = document.getElementById("register-form");
+    //let registerForm: HTMLFormElement = <HTMLFormElement>document.getElementById("register-form");
     let anmeldeButton = document.getElementById("send-button");
     anmeldeButton.addEventListener("click", submitToServer);
     let registerUrl = "https://gisapplication.herokuapp.com/";
@@ -17,7 +17,10 @@ var registrieren;
         //console.log("Response Text: " + responseText);
         //Antwort auf der Seite ausgeben
         let selectElement = document.querySelector(".ausgabe");
-        selectElement.appendChild(document.createTextNode(responseText));
+        //selectElement.appendChild(document.createTextNode(responseText));
+        let paragraph = document.createElement("div");
+        paragraph.innerText = responseText;
+        selectElement.appendChild(paragraph);
     }
 })(registrieren || (registrieren = {}));
 //# sourceMappingURL=index.js.map

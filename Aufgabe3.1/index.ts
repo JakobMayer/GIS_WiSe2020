@@ -1,5 +1,5 @@
 namespace registrieren {
-    let registerForm: HTMLFormElement = <HTMLFormElement>document.getElementById("register-form");
+    //let registerForm: HTMLFormElement = <HTMLFormElement>document.getElementById("register-form");
 
     let anmeldeButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send-button");
     anmeldeButton.addEventListener("click", submitToServer);
@@ -22,7 +22,10 @@ namespace registrieren {
 
         //Antwort auf der Seite ausgeben
         let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
-        selectElement.appendChild(document.createTextNode(responseText));
+        //selectElement.appendChild(document.createTextNode(responseText));
+        let paragraph: HTMLDivElement = document.createElement("div");
+        paragraph.innerText = responseText;
+        selectElement.appendChild(paragraph);
 
     }
 }

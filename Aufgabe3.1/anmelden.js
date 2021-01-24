@@ -15,7 +15,10 @@ async function submitToServer(_event) {
     //alert("Response Text: " + responseText);
     //Antwort auf der Seite ausgeben
     let selectElement = document.querySelector(".ausgabe");
-    selectElement.appendChild(document.createTextNode(responseText));
+    //selectElement.appendChild(document.createTextNode(responseText));
+    let paragraph = document.createElement("div");
+    paragraph.innerText = responseText;
+    selectElement.appendChild(paragraph);
     //selectElement.appendChild(document.createTextNode("\n"));
 }
 //# sourceMappingURL=anmelden.js.map
