@@ -1,0 +1,79 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(255, 255, 255);
+    text-rendering: opimizeLegibility;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    overflow: hidden
+    
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.699), rgba(0, 0, 0, 0.795)), url("Bilder//Grünzeug.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.container {
+    width: 1140px;
+    margin: 15% auto 0 auto;
+}
+
+h1,h2 {
+    font-weight: 300;
+    letter-spacing: 1px;
+
+}
+
+h1 {
+    font-size: 60px;
+    margin-bottom: 1%;
+}
+
+h2 {
+    font-size: 40px;
+    margin-bottom: 3%;
+}
+
+
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    border: 1px solid #199A19;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+.btn-full:link,
+.btn-full:visited {
+    background-color: #199A19;
+    border: 1px solid #199A19;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #199A19;
+    color: #199A19;
+}
+
+.btn:hover,
+.btn:active {
+    background-color: #199A19;
+}
+
+.btn-full:hover,
+.btn-full:active {
+    border: 1px solid #199A19;
+}
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #199A19;
+    color: #fff;
+}
