@@ -6,12 +6,13 @@
     <title>Registrieren</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <link rel="stylesheet" type="text/css" href="registrieren.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="index.js" defer ></script>
     
   </head>
   
   <body>
-    <div class="container">
+    <div data-aos="zoom-in-down" class="container" >
 
       
       <h1>Registrieren</h1>
@@ -33,5 +34,18 @@
       </div>
     
     </div>
+
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once:true,
+            offset: 100,
+            duration: 600,
+            delay: 500,
+            
+        });
+        </script>
   </body>
 </html>

@@ -6,11 +6,12 @@
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <script src="anmelden.js" defer ></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
   </head>
   
   <body>
-    <div class="container">
+    <div data-aos="zoom-in-down" class="container">
 
       <h1>Login</h1>
       <form  id="register-form">
@@ -25,5 +26,17 @@
       </div>
 
     </div>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+          once:true,
+            offset: 100,
+            duration: 600,
+            delay: 500,
+            
+        });
+        </script>
   </body>
 </html>
