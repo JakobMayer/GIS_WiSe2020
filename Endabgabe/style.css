@@ -41,6 +41,10 @@ input {
   background-color: #199a1905;
 }
 
+input:focus {
+  box-shadow: 3px 3px 5px #a1a1a1;
+}
+
 label {
   margin-bottom:50px;
 }
