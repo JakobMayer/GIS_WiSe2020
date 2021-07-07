@@ -10,7 +10,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.747)), url("Bilder/Burger.jpeg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.747)), url("Bilder/Grünzeug.jpeg");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -46,34 +46,34 @@ h2 {
     font-weight: 300;
     text-decoration: none;
     border-radius: 200px;
-    border: 1px solid #199A19;
+    border: 1px solid #e67e25;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 .btn-full:link,
 .btn-full:visited {
-    background-color: #199A19;
-    border: 1px solid #199A19;
+    background-color: #e67e25;
+    border: 1px solid #e67e25;
     color: #fff;
     margin-right: 20px;
 }
 
 .btn-ghost:link,
 .btn-ghost:visited {
-    border: 1px solid #199A19;
-    color: #199A19;
+    border: 1px solid #e67e25;
+    color: #e67e25;
 }
 
 .btn:hover,
 .btn:active {
-    background-color: #199A19;
+    background-color: #e67e25;
 }
 
 .btn-full:hover,
 .btn-full:active {
-    border: 1px solid #199A19;
+    border: 1px solid #e67e25;
 }
 .btn-ghost:hover,
 .btn-ghost:active {
-    border: 1px solid #199A19;
+    border: 1px solid #e67e25;
     color: #fff;
 }

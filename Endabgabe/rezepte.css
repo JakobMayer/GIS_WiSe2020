@@ -1,6 +1,6 @@
 * {
     font-family: Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     color:rgb(53, 53, 53);
   }
   
@@ -20,6 +20,18 @@
 h1 {
     font-size: 50px;
     font-weight: lighter;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 30px;
+    
+    margin-bottom: 40px;
+    color: rgb(68, 68, 68);
+}
+
+h3 {
+    color: rgb(68, 68, 68);
 }
 
 .menü {
@@ -30,8 +42,49 @@ h1 {
 .menü a {
     text-decoration: none;
     margin-left: 20px;
+    font-size: 20px;
 }
 
 .menü a:hover {
-    color: #199A19;
+    color: #e67e25;
 }
+
+.col {
+    width: 45.5%;
+    height: fit-content;
+    float: left;
+    padding: 20px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 0 33px rgba(0, 0, 0, 0.137);
+    margin-bottom: 45px;
+}
+
+.col:last-child {
+    margin-left: 20px;
+}
+
+input {
+  margin-bottom: 15px;
+  width:99%;
+  height:25px;
+  border: 1px solid rgba(66, 66, 66, 0.24);
+  font-size: 15px;
+  background-color: #199a1905;
+}
+
+
+/* -------------------- Button ---------------------*/
+button {
+    display: inline-block;
+    padding: 3px 20px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    border: 1px solid #e67e25;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    background-color: white;
+    margin-right: 10px;
+}
+  
+button:hover {background-color: #e67e25; color: white;}

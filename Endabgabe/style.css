@@ -72,11 +72,11 @@ label {
     font-weight: 300;
     text-decoration: none;
     border-radius: 200px;
-    border: 1px solid #199A19;
+    border: 1px solid #e67e25;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
     background-color: white;
 }
 
-#send-button:hover {background-color: #199A19; color: white;}
+#send-button:hover {background-color: #e67e25; color: white;}
 
 
