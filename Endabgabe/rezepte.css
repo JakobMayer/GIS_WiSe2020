@@ -1,7 +1,7 @@
 * {
     font-family: Helvetica, sans-serif;
-    font-size: 18px;
-    color:rgb(0, 0, 0);
+    font-size: 20px;
+    color:rgb(53, 53, 53);
   }
   
   body {
@@ -9,6 +9,7 @@
     background-size: cover;
     background-position: center;
     height: 100vh;
+    background-attachment: fixed;
 }
 
 .container {
@@ -17,15 +18,20 @@
 }
 
 h1 {
-    font-size: 40px;
-    margin-bottom:40px;
+    font-size: 50px;
+    font-weight: lighter;
 }
 
 .menü {
     float: right;
+    margin-top: 7px;
 }
 
 .menü a {
     text-decoration: none;
-    margin-left: 10px;
+    margin-left: 20px;
+}
+
+.menü a:hover {
+    color: #199A19;
 }
