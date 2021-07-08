@@ -21,6 +21,7 @@ var registrieren;
         let paragraph = document.createElement("div");
         paragraph.innerText = responseText;
         selectElement.appendChild(paragraph);
+        window.location.href = "anmelden.html";
     }
 })(registrieren || (registrieren = {}));
 //# sourceMappingURL=index.js.map

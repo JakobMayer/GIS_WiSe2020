@@ -104,7 +104,7 @@ export namespace P_3_1Server {
         let countDocuments: number = await userCollection.countDocuments({ "email": _user.email });
 
         if (countDocuments > 0) {
-            return "Mailadresse bereits vergeben";
+            return "Mailadresse bereits vergebenn";
             //TODO: An Client weitergeben
         } else {
             await userCollection.insertOne(_user);
@@ -117,7 +117,6 @@ export namespace P_3_1Server {
         let countDocuments: number = await userCollection.countDocuments({ "email": _email, "passwort": _passwort });
 
         if (countDocuments > 0) {
-            console.log("Erfolg");
             return "Login erfolgreich";
         } else {
             return "falsche Daten eingegeben";

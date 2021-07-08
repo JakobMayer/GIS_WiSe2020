@@ -27,5 +27,8 @@ namespace registrieren {
         paragraph.innerText = responseText;
         selectElement.appendChild(paragraph);
 
+
+        window.location.href = "anmelden.html";
+
     }
 }

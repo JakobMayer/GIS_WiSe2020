@@ -27,6 +27,8 @@ async function submitToServer(_event: Event): Promise<void> {
     let paragraph: HTMLDivElement = document.createElement("div");
     paragraph.innerText = responseText;
     selectElement.appendChild(paragraph);
+
+    window.location.href = "anzeige.html";
     
     
     //selectElement.appendChild(document.createTextNode("\n"));

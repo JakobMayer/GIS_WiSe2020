@@ -69,7 +69,7 @@ var P_3_1Server;
         //countDocuments
         let countDocuments = await userCollection.countDocuments({ "email": _user.email });
         if (countDocuments > 0) {
-            return "Mailadresse bereits vergeben";
+            return "Mailadresse bereits vergebenn";
             //TODO: An Client weitergeben
         }
         else {
@@ -80,7 +80,6 @@ var P_3_1Server;
     async function anmelden(_email, _passwort) {
         let countDocuments = await userCollection.countDocuments({ "email": _email, "passwort": _passwort });
         if (countDocuments > 0) {
-            console.log("Erfolg");
             return "Login erfolgreich";
         }
         else {
