@@ -26,6 +26,8 @@ export namespace P_3_1Server {
         "passwort": string;
     }
 
+    
+
     let mongoUrl: string = "mongodb+srv://Beispiel_User:12345@cluster2000.9tkvz.mongodb.net/Test?retryWrites=true&w=majority";
     let userCollection: Mongo.Collection;
 

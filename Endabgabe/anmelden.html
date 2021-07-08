@@ -35,7 +35,10 @@
             offset: 70,
             duration: 500,
             delay: 500,
-            
+            disable: function () {
+                var maxWidth = 700;
+                return window.innerWidth < maxWidth;
+            }
         });
         </script>
   </body>

@@ -80,3 +80,15 @@ label {
 #send-button:hover {background-color: #e67e25; color: white;}
 
 
+
+/* -------------------- Queries ---------------------*/
+
+/* - Ipad */
+@media only screen and (max-width: 768px) {
+}
+
+/* - Iphone X */
+@media only screen and (max-width: 375px) {
+  h1 {font-size: 35px;}
+  .container {width: 280px;margin-top: 120px;}
+}

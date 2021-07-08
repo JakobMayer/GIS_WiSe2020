@@ -5,7 +5,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    overflow: hidden
+    overflow: hidden;
     
 }
 
@@ -19,6 +19,7 @@ body {
 .container {
     width: 1140px;
     margin: 15% auto 0 auto;
+    padding: 4vh;
 }
 
 h1,h2 {
@@ -76,4 +77,31 @@ h2 {
 .btn-ghost:active {
     border: 1px solid #e67e25;
     color: #fff;
+}
+
+
+
+
+
+
+
+/* -------------------- Queries ---------------------*/
+
+/* - Ipad */
+@media only screen and (max-width: 768px) {
+    .container {width: 100vh;padding: 4vh;}
+    h1 {font-size: 45px;}
+    h2 {font-size: 30px;}
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {font-size: 30px;}
+    h2 {font-size:25px;}
+}
+
+/* - Iphone X */
+@media only screen and (max-width: 375px) {
+    h1 {font-size: 25px;margin-bottom: 3vh;margin-top: 10vh;}
+    h2 {font-size: 18px;margin-bottom: 5vh;}
+    a {font-size: 16px;}
 }
