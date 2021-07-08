@@ -80,7 +80,7 @@ var P_3_1Server;
     async function anmelden(_email, _passwort) {
         let countDocuments = await userCollection.countDocuments({ "email": _email, "passwort": _passwort });
         if (countDocuments > 0) {
-            return "angemeldett";
+            return "Login erfolgreich";
         }
         else {
             return "falsche Daten eingegeben";
