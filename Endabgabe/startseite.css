@@ -10,7 +10,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.747)), url("Bilder/Grünzeug.jpeg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.76)), url("Bilder/Grünzeug.jpeg");
     background-size: cover;
     background-position: center;
     height: 100vh;

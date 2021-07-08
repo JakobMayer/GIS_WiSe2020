@@ -115,7 +115,7 @@ export namespace P_3_1Server {
         let countDocuments: number = await userCollection.countDocuments({ "email": _email, "passwort": _passwort });
 
         if (countDocuments > 0) {
-            return "angemeldet";
+            return "angemeldett";
         } else {
             return "falsche Daten eingegeben";
         }
