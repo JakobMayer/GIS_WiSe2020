@@ -1,12 +1,13 @@
 namespace anzeigen {
-    let anzeigeButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("anzeige-button");
-    anzeigeButton.addEventListener("click", accountsAnzeigen);
+    //let anzeigeButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("anzeige-button");
+    //anzeigeButton.addEventListener("click", accountsAnzeigen);
 
     let anzeigeUrl: string = "https://gisapplication.herokuapp.com/";
     //let anzeigeUrl: string = "http://localhost:8100/";
     let fetchUrl: string = anzeigeUrl + "anzeige";
 
 
+    accountsAnzeigen();
     async function accountsAnzeigen(): Promise<void> {
         console.log("Nutzerkonten werden angezeigt");
         //let users: Mongo.Collection = db("Test").collection("Students");
@@ -19,9 +20,6 @@ namespace anzeigen {
         }
 
         let response: Response = await fetch(fetchUrl);
-
-
-
         let accounts: User[] = await response.json();
 
         console.log(accounts);

@@ -1,11 +1,12 @@
 "use strict";
 var anzeigen;
 (function (anzeigen) {
-    let anzeigeButton = document.getElementById("anzeige-button");
-    anzeigeButton.addEventListener("click", accountsAnzeigen);
+    //let anzeigeButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("anzeige-button");
+    //anzeigeButton.addEventListener("click", accountsAnzeigen);
     let anzeigeUrl = "https://gisapplication.herokuapp.com/";
     //let anzeigeUrl: string = "http://localhost:8100/";
     let fetchUrl = anzeigeUrl + "anzeige";
+    accountsAnzeigen();
     async function accountsAnzeigen() {
         console.log("Nutzerkonten werden angezeigt");
         let response = await fetch(fetchUrl);

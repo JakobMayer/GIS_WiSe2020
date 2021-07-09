@@ -14,19 +14,17 @@ namespace registrieren {
         let fetchUrl: string = registerUrl + "index" + "?" + query.toString();
         //console.log(url);
 
-
         let response: Response = await fetch(fetchUrl);
         let responseText: string = await response.text();
-        //console.log(response);
         console.log("Response Text: " + responseText);
 
         //Antwort auf der Seite ausgeben
         let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
-        //selectElement.appendChild(document.createTextNode(responseText));
         let paragraph: HTMLDivElement = document.createElement("div");
         paragraph.innerText = responseText;
         selectElement.appendChild(paragraph);
 
+        // Wenn registriert dann weiter zu anmelden
         if (responseText == "Neuer Account erstellt") {
             window.location.href = "anmelden.html";
         }

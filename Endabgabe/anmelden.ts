@@ -11,9 +11,7 @@ async function submitToServer(_event: Event): Promise<void> {
     let query: URLSearchParams = new URLSearchParams(<any>formData);
 
     let fetchUrl: string = anmeldeUrl + "einloggen" + "?" + query.toString();
-
     //console.log(url);
-
 
     let response: Response = await fetch(fetchUrl);
     let responseText: string = await response.text();
@@ -34,10 +32,4 @@ async function submitToServer(_event: Event): Promise<void> {
         localStorage.clear();
         //localStorage.setItem("username", username);
     }
-
-    
-    
-    
-    //selectElement.appendChild(document.createTextNode("\n"));
-
 }

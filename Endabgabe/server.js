@@ -19,11 +19,13 @@ var Endabgabe;
     server.listen(port);
     let mongoUrl = "mongodb+srv://Beispiel_User:12345@cluster2000.9tkvz.mongodb.net/Test?retryWrites=true&w=majority";
     let userCollection;
+    let rezeptCollection;
     async function conectMongo(_url) {
         let mongoClient = new Mongo.MongoClient(mongoUrl);
         await mongoClient.connect();
         //console.log("Mongo verbunden");
         userCollection = mongoClient.db("Test").collection("User");
+        rezeptCollection = mongoClient.db("Test").collection("Rezepte");
     }
     conectMongo(mongoUrl);
     function handleListen() {
@@ -35,13 +37,8 @@ var Endabgabe;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let q = Url.parse(_request.url, true);
-            //console.log(q);
             let data = q.query;
             if (q.pathname == "/index") {
-                /*  for (let key in q.query) {
-                    _response.write(key + ":" + q.query[key] + "<br/>");
-                } */
-                //console.log("hier");
                 let user = {
                     "vorname": data.vorname,
                     "nachname": data.nachname,
@@ -51,13 +48,28 @@ var Endabgabe;
                 _response.write(await registriereUser(user));
             }
             else if (q.pathname == "/einloggen") {
-                //let stringJSON: string = JSON.stringify(q.query);
-                //_response.write(stringJSON);
                 _response.write(await anmelden(data.email, data.passwort));
             }
             else if (q.pathname == "/anzeige") {
                 let accounts = await accountsAnzeigen();
                 _response.write(JSON.stringify(accounts));
+            }
+            else if (q.pathname == "/meineRezepte.html") {
+                let rezept = {
+                    "titel": data.titel,
+                    "zutat1": data.zutat1,
+                    "zutat2": data.zutat2,
+                    "zutat3": data.zutat3,
+                    "zutat4": data.zutat4,
+                    "zutat5": data.zutat5,
+                    "zutat6": data.zutat6,
+                    "zutat7": data.zutat7,
+                    "zutat8": data.zutat8,
+                    "zutat9": data.zutat9,
+                    "zutat10": data.zutat10,
+                    "zubereitung": data.zubereitung
+                };
+                _response.write(await registriereRezept(rezept));
             }
         }
         _response.end();
@@ -84,9 +96,15 @@ var Endabgabe;
             return "falsche Daten eingegeben";
         }
     }
+    // User anzeigen
     async function accountsAnzeigen() {
         let accounts = await userCollection.find().toArray();
         return accounts;
+    }
+    //rezept hinzufügen
+    async function registriereRezept(_rezept) {
+        await rezeptCollection.insertOne(_rezept);
+        console.log("Rezept hinzugefügt");
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

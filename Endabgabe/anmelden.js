@@ -24,6 +24,5 @@ async function submitToServer(_event) {
         localStorage.clear();
         //localStorage.setItem("username", username);
     }
-    //selectElement.appendChild(document.createTextNode("\n"));
 }
 //# sourceMappingURL=anmelden.js.map

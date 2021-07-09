@@ -84,6 +84,8 @@ input {
 
 .rezept:last-child {margin-bottom: 40px;}
 
+.ausgabe { color: red;font-size: 20px;}
+
 
 /* -------------------- Button ---------------------*/
 button {

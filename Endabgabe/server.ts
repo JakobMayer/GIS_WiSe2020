@@ -40,10 +40,11 @@ export namespace Endabgabe {
         "zutat10": string;
         "zubereitung": string;
     }
-
+    
 
     let mongoUrl: string = "mongodb+srv://Beispiel_User:12345@cluster2000.9tkvz.mongodb.net/Test?retryWrites=true&w=majority";
     let userCollection: Mongo.Collection;
+    let rezeptCollection: Mongo.Collection;
 
 
     async function conectMongo(_url: string): Promise<void> {
@@ -51,6 +52,7 @@ export namespace Endabgabe {
         await mongoClient.connect();
         //console.log("Mongo verbunden");
         userCollection = mongoClient.db("Test").collection("User");
+        rezeptCollection = mongoClient.db("Test").collection("Rezepte");
     }
     conectMongo(mongoUrl);
 
@@ -69,30 +71,23 @@ export namespace Endabgabe {
 
         if (_request.url) {
             let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-            //console.log(q);
 
             let data: Query = <Query>q.query;
 
+
             if (q.pathname == "/index") {
-                /*  for (let key in q.query) {
-                    _response.write(key + ":" + q.query[key] + "<br/>");
-                } */
-                //console.log("hier");
-                
+
                 let user: User = {
                     "vorname": data.vorname,
                     "nachname": data.nachname,
                     "email": data.email,
                     "passwort": data.passwort
                 };
-
                 _response.write (await registriereUser(user));
             }
 
 
             else if (q.pathname == "/einloggen") {
-                //let stringJSON: string = JSON.stringify(q.query);
-                //_response.write(stringJSON);
 
                 _response.write(await anmelden(data.email, data.passwort));
 
@@ -102,6 +97,25 @@ export namespace Endabgabe {
             else if (q.pathname == "/anzeige") {
                 let accounts: User[] = await accountsAnzeigen();
                 _response.write(JSON.stringify(accounts));
+            }
+
+
+            else if (q.pathname == "/meineRezepte.html") {
+                let rezept: Rezept = {
+                    "titel": data.titel,
+                    "zutat1": data.zutat1,
+                    "zutat2": data.zutat2,
+                    "zutat3": data.zutat3,
+                    "zutat4": data.zutat4,
+                    "zutat5": data.zutat5,
+                    "zutat6": data.zutat6,
+                    "zutat7": data.zutat7,
+                    "zutat8": data.zutat8,
+                    "zutat9": data.zutat9,
+                    "zutat10": data.zutat10,
+                    "zubereitung": data.zubereitung
+                };
+                _response.write(await registriereRezept(rezept));
             }
 
         }
@@ -134,12 +148,16 @@ export namespace Endabgabe {
         }
     }
 
+    // User anzeigen
     async function accountsAnzeigen(): Promise<User[]> {
         let accounts: User[] = await userCollection.find().toArray();
         return accounts;
     }
 
-
-
+    //rezept hinzufügen
+    async function registriereRezept(_rezept: Rezept): Promise<void> {
+        await rezeptCollection.insertOne(_rezept);
+        console.log("Rezept hinzugefügt");
+    }
 
 }
