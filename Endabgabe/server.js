@@ -62,7 +62,6 @@ var P_3_1Server;
             }
         }
         _response.end();
-        // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
     }
     async function registriereUser(_user) {
         //überprüfen ob es schon ein Konto mit der Mailadresse gibt

@@ -38,7 +38,7 @@ h2 {
     margin-bottom: 3%;
 }
 
-
+div>a {font-size: 18px;}
 
 .btn:link,
 .btn:visited {
@@ -50,6 +50,7 @@ h2 {
     border: 1px solid #e67e25;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
+
 .btn-full:link,
 .btn-full:visited {
     background-color: #e67e25;
@@ -60,8 +61,8 @@ h2 {
 
 .btn-ghost:link,
 .btn-ghost:visited {
-    border: 1px solid #e67e25;
-    color: #e67e25;
+    border: 1px solid #df6d0a;
+    color: #df6d0a;
 }
 
 .btn:hover,
@@ -71,7 +72,8 @@ h2 {
 
 .btn-full:hover,
 .btn-full:active {
-    border: 1px solid #e67e25;
+    border: 1px solid #df6d0a;
+    background-color: #df6d0a;
 }
 .btn-ghost:hover,
 .btn-ghost:active {
@@ -103,5 +105,5 @@ h2 {
 @media only screen and (max-width: 375px) {
     h1 {font-size: 25px;margin-bottom: 3vh;margin-top: 10vh;}
     h2 {font-size: 18px;margin-bottom: 5vh;}
-    a {font-size: 16px;}
+    div>a {font-size: 16px;}
 }

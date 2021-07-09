@@ -28,7 +28,12 @@ async function submitToServer(_event: Event): Promise<void> {
     paragraph.innerText = responseText;
     selectElement.appendChild(paragraph);
 
-    window.location.href = "anzeige.html";
+    if (responseText == "true") {
+
+        localStorage.clear();
+        //localStorage.setItem("username", username);
+        window.location.href = "anzeige.html";
+    }
     
     
     //selectElement.appendChild(document.createTextNode("\n"));
