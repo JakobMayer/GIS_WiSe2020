@@ -1,14 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.P_3_1Server = void 0;
+exports.Endabgabe = void 0;
 //Http Modul importieren
 const Http = require("http");
 const Url = require("url");
 const Mongo = require("mongodb");
-var P_3_1Server;
-(function (P_3_1Server) {
+var Endabgabe;
+(function (Endabgabe) {
     console.log("Starting server");
-    //environment mit der Angabe der Portnummer von heroku
     let port = Number(process.env.PORT);
     //Wenn der port nicht definiert ist bzw keiner von heroku zugewiesen wurde, wird der port nr. 8100 aufgerufen
     if (!port)
@@ -31,7 +30,7 @@ var P_3_1Server;
         console.log("Listening");
     }
     async function handleRequest(_request, _response) {
-        console.log("I hear you!");
+        console.log("I hear everything!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
@@ -63,9 +62,8 @@ var P_3_1Server;
         }
         _response.end();
     }
+    //User registrieren
     async function registriereUser(_user) {
-        //überprüfen ob es schon ein Konto mit der Mailadresse gibt
-        //countDocuments
         let countDocuments = await userCollection.countDocuments({ "email": _user.email });
         if (countDocuments > 0) {
             return "Mailadresse bereits vergeben";
@@ -76,10 +74,11 @@ var P_3_1Server;
             return "Neuer Account erstellt";
         }
     }
+    // User anmelden
     async function anmelden(_email, _passwort) {
         let countDocuments = await userCollection.countDocuments({ "email": _email, "passwort": _passwort });
         if (countDocuments > 0) {
-            return "Login erfolgreich";
+            return "angemeldet";
         }
         else {
             return "falsche Daten eingegeben";
@@ -89,5 +88,5 @@ var P_3_1Server;
         let accounts = await userCollection.find().toArray();
         return accounts;
     }
-})(P_3_1Server = exports.P_3_1Server || (exports.P_3_1Server = {}));
+})(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

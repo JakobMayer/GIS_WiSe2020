@@ -4,10 +4,10 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
 
-export namespace P_3_1Server {
+export namespace Endabgabe {
 
     console.log("Starting server");
-    //environment mit der Angabe der Portnummer von heroku
+    
     let port: number = Number(process.env.PORT);
     //Wenn der port nicht definiert ist bzw keiner von heroku zugewiesen wurde, wird der port nr. 8100 aufgerufen
     if (!port)
@@ -26,7 +26,21 @@ export namespace P_3_1Server {
         "passwort": string;
     }
 
-    
+    interface Rezept {
+        "titel": string;
+        "zutat1": string;
+        "zutat2": string;
+        "zutat3": string;
+        "zutat4": string;
+        "zutat5": string;
+        "zutat6": string;
+        "zutat7": string;
+        "zutat8": string;
+        "zutat9": string;
+        "zutat10": string;
+        "zubereitung": string;
+    }
+
 
     let mongoUrl: string = "mongodb+srv://Beispiel_User:12345@cluster2000.9tkvz.mongodb.net/Test?retryWrites=true&w=majority";
     let userCollection: Mongo.Collection;
@@ -40,7 +54,6 @@ export namespace P_3_1Server {
     }
     conectMongo(mongoUrl);
 
-
     function handleListen(): void {
         console.log("Listening");
     }
@@ -50,7 +63,7 @@ export namespace P_3_1Server {
     }
 
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
-        console.log("I hear you!");
+        console.log("I hear everything!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
 
@@ -95,9 +108,8 @@ export namespace P_3_1Server {
         _response.end();
     }
 
+    //User registrieren
     async function registriereUser(_user: User): Promise<string> {
-        //überprüfen ob es schon ein Konto mit der Mailadresse gibt
-        //countDocuments
 
         let countDocuments: number = await userCollection.countDocuments({ "email": _user.email });
 
@@ -110,12 +122,13 @@ export namespace P_3_1Server {
         }
     }
 
+    // User anmelden
     async function anmelden(_email: string, _passwort: string): Promise<string> {
 
         let countDocuments: number = await userCollection.countDocuments({ "email": _email, "passwort": _passwort });
 
         if (countDocuments > 0) {
-            return "Login erfolgreich";
+            return "angemeldet";
         } else {
             return "falsche Daten eingegeben";
         }
