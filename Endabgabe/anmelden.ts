@@ -17,8 +17,8 @@ async function submitToServer(_event: Event): Promise<void> {
 
     let response: Response = await fetch(fetchUrl);
     let responseText: string = await response.text();
-    //console.log(response);
-    //alert("Response Text: " + responseText);
+    console.log(response);
+    console.log("Response Text: " + responseText);
 
     //Antwort auf der Seite ausgeben
     let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
@@ -28,12 +28,14 @@ async function submitToServer(_event: Event): Promise<void> {
     paragraph.innerText = responseText;
     selectElement.appendChild(paragraph);
 
-    if (responseText == "true") {
+    if (responseText == "angemeldet") {
+        window.location.href = "anzeige.html";
 
         localStorage.clear();
         //localStorage.setItem("username", username);
-        window.location.href = "anzeige.html";
     }
+
+    
     
     
     //selectElement.appendChild(document.createTextNode("\n"));

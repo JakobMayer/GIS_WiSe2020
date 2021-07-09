@@ -102,7 +102,7 @@ export namespace P_3_1Server {
         let countDocuments: number = await userCollection.countDocuments({ "email": _user.email });
 
         if (countDocuments > 0) {
-            return "Mailadresse bereits vergebenn";
+            return "Mailadresse bereits vergeben";
             //TODO: An Client weitergeben
         } else {
             await userCollection.insertOne(_user);

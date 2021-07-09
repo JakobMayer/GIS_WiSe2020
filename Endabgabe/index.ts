@@ -18,7 +18,7 @@ namespace registrieren {
         let response: Response = await fetch(fetchUrl);
         let responseText: string = await response.text();
         //console.log(response);
-        //console.log("Response Text: " + responseText);
+        console.log("Response Text: " + responseText);
 
         //Antwort auf der Seite ausgeben
         let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
@@ -27,8 +27,9 @@ namespace registrieren {
         paragraph.innerText = responseText;
         selectElement.appendChild(paragraph);
 
-
-        window.location.href = "anmelden.html";
+        if (responseText == "Neuer Account erstellt") {
+            window.location.href = "anmelden.html";
+        }
 
     }
 }
