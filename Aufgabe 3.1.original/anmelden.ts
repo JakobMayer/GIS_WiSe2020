@@ -11,12 +11,14 @@ async function submitToServer(_event: Event): Promise<void> {
     let query: URLSearchParams = new URLSearchParams(<any>formData);
 
     let fetchUrl: string = anmeldeUrl + "einloggen" + "?" + query.toString();
+
     //console.log(url);
+
 
     let response: Response = await fetch(fetchUrl);
     let responseText: string = await response.text();
-    console.log(response);
-    console.log("Response Text: " + responseText);
+    //console.log(response);
+    //alert("Response Text: " + responseText);
 
     //Antwort auf der Seite ausgeben
     let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
@@ -25,11 +27,8 @@ async function submitToServer(_event: Event): Promise<void> {
     let paragraph: HTMLDivElement = document.createElement("div");
     paragraph.innerText = responseText;
     selectElement.appendChild(paragraph);
+    
+    
+    //selectElement.appendChild(document.createTextNode("\n"));
 
-    if (responseText == "angemeldet") {
-        window.location.href = "anzeige.html";
-
-        localStorage.clear();
-        //localStorage.setItem("username", username);
-    }
 }

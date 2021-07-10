@@ -3,40 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    
+    <title>Registrieren</title>
+    <link rel="stylesheet" type="text/css" href="anmelden.css"/>
+    <link rel="stylesheet" type="text/css" href="registrieren.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="index.js" defer ></script>
     
   </head>
   
   <body>
-    <div class="container">
-      <div class="menü">
-          <a class="auswahl" href=anzeige.html>Nutzerkonten</a>
-          <a class="auswahl" href=anmelden.html>Anmelden</a>
-          <a class="auswahl" href=index.html>Kontaktformular</a>
-      </div>
+    <div data-aos="zoom-in-down" class="container" >
 
+      <h1>Registrieren</h1>
       
-      <h1>Kontaktformular</h1>
       <form  id="register-form">
-        <label for="fname">Vorname</label><br />
-        <input type="text" name="vorname" /><br />
-        <label for="lname">Nachname</label><br />
-        <input type="text" name="nachname" /><br />
-        <label for="email">E-Mail</label><br />
-        <input type="text" name="email"/><br /><br />
-        <label for="passwort">Passwort</label><br />
-        <input type="text" name="passwort"/><br /><br />
+        <input type="text" name="vorname" placeholder="Vorname"/><br/>
+        <input type="text" name="nachname" placeholder="Nachname"/><br/>
+        <input type="text" name="email" placeholder="E-Mail"/><br/>      
+        <input type="text" name="passwort" placeholder="Passwort"/><br/><br/>
 
-        <button id="send-button" type="button"  name="abschicken">Abschicken</button>
+        <button id="send-button" type="button"  name="abschicken">Registrieren</button>
       </form>
 
-      <div class="ausgabe">
-        
-      </div>
+      <div class="ausgabe"></div>
     
     </div>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once:true,
+            offset: 70,
+            duration: 500,
+            delay: 500,
+            disable: function () {
+                var maxWidth = 700;
+                return window.innerWidth < maxWidth;
+            }
+        });
+        </script>
   </body>
 </html>

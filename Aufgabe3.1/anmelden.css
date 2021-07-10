@@ -1,0 +1,94 @@
+* {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  color:rgb(0, 0, 0);
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.342), rgba(0, 0, 0, 0.575)), url("Bilder/pizza.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:8%;
+  padding: 32px;
+  border-radius: 13px;
+  background: white;
+  box-shadow: 0 0 33px rgb(0, 0, 0);
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom:40px;
+  text-align: center;
+}
+
+input {
+  margin-bottom: 25px;
+  margin-top:7px;
+  width:198%;
+  height:25px;
+  border: 1px solid rgba(66, 66, 66, 0.24);
+  font-size: 15px;
+  background-color: #199a1905;
+}
+
+input:focus {
+  box-shadow: 3px 3px 5px #a1a1a1;
+}
+
+label {
+  margin-bottom:50px;
+}
+
+.auswahl {
+  float:right;
+  margin-left: 15px;
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(54, 54, 54);
+}
+
+.ausgabe {
+  margin-top:40px;
+}
+
+#register-form {
+  width: 50%;
+}
+
+#send-button {
+  margin-left: 55%;
+  display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    border: 1px solid #e67e25;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    background-color: white;
+}
+
+#send-button:hover {background-color: #e67e25; color: white;}
+
+
+
+/* -------------------- Queries ---------------------*/
+
+/* - Ipad */
+@media only screen and (max-width: 768px) {
+}
+
+/* - Iphone X */
+@media only screen and (max-width: 375px) {
+  h1 {font-size: 35px;}
+  .container {width: 280px;margin-top: 120px;}
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="startseite.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="test.js"></script>
+    <title>Startseite</title>
+</head>
+<body>
+    <div class="container">
+        <h1 data-aos="fade-right" data-aos-delay="400"><strong>Deine Rezeptsammlung</strong></h1>
+        <h2 data-aos="fade-right" data-aos-delay="600" data-aos-anchor-placement="top-down" >Finde was du suchst</h2>
+        <a class="btn btn-full" href="anmelden.html">Login</a>
+        <a class="btn btn-ghost" href="index.html">Registrieren</a>
+    </div>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once:true,
+            offset: 500,
+            duration: 600,
+            delay: 500,
+            disable: function () {
+                var maxWidth = 700;
+                return window.innerWidth < maxWidth;
+            }
+        });
+        </script>
+</body>
+</html>

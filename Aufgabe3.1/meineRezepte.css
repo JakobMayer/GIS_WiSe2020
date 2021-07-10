@@ -1,0 +1,23 @@
+
+/* -------------------- Queries ---------------------*/
+
+/* - Ipad */
+@media only screen and (max-width: 768px) {
+    * {font-size: 16px;}
+    h2 { font-size: 22px;}
+    .container {width: 750px;}
+    .menü a {font-size: 20px; margin-left: 12px;}
+    .col:last-child {margin-left: 10px; width: 310px;}
+    
+}
+
+
+/* - Iphone X */
+@media only screen and (max-width: 375px) {
+    * {font-size: 14px;}
+    .container { width: 350px;}
+    .menü a {font-size: 18px;margin-bottom: 40px;}
+
+    .col {width: 300px;}
+    .col:last-child {margin-left: 0;}
+}

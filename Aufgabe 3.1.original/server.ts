@@ -4,10 +4,10 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
 
-export namespace Endabgabe {
+export namespace P_3_1Server {
 
     console.log("Starting server");
-    
+    //environment mit der Angabe der Portnummer von heroku
     let port: number = Number(process.env.PORT);
     //Wenn der port nicht definiert ist bzw keiner von heroku zugewiesen wurde, wird der port nr. 8100 aufgerufen
     if (!port)
@@ -26,28 +26,8 @@ export namespace Endabgabe {
         "passwort": string;
     }
 
-    interface Rezept {
-        "titel": string;
-        "zutat1": string;
-        "zutat2": string;
-        "zutat3": string;
-        "zutat4": string;
-        "zutat5": string;
-        "zutat6": string;
-        "zutat7": string;
-        "zutat8": string;
-        "zutat9": string;
-        "zutat10": string;
-        "zubereitung": string;
-    }
-    
-
     let mongoUrl: string = "mongodb+srv://Beispiel_User:12345@cluster2000.9tkvz.mongodb.net/Test?retryWrites=true&w=majority";
     let userCollection: Mongo.Collection;
-    let rezeptCollection: Mongo.Collection;
-
-    console.log("Database connection", userCollection != undefined);
-    console.log("Database connection", rezeptCollection != undefined);
 
 
     async function conectMongo(_url: string): Promise<void> {
@@ -55,9 +35,9 @@ export namespace Endabgabe {
         await mongoClient.connect();
         //console.log("Mongo verbunden");
         userCollection = mongoClient.db("Test").collection("User");
-        rezeptCollection = mongoClient.db("Test").collection("Rezepte");
     }
     conectMongo(mongoUrl);
+
 
     function handleListen(): void {
         console.log("Listening");
@@ -68,29 +48,36 @@ export namespace Endabgabe {
     }
 
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
-        console.log("I hear everything!");
+        console.log("I hear you!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
 
         if (_request.url) {
             let q: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+            //console.log(q);
 
             let data: Query = <Query>q.query;
 
-
             if (q.pathname == "/index") {
-
+                /*  for (let key in q.query) {
+                    _response.write(key + ":" + q.query[key] + "<br/>");
+                } */
+                //console.log("hier");
+                
                 let user: User = {
                     "vorname": data.vorname,
                     "nachname": data.nachname,
                     "email": data.email,
                     "passwort": data.passwort
                 };
+
                 _response.write (await registriereUser(user));
             }
 
 
             else if (q.pathname == "/einloggen") {
+                //let stringJSON: string = JSON.stringify(q.query);
+                //_response.write(stringJSON);
 
                 _response.write(await anmelden(data.email, data.passwort));
 
@@ -98,38 +85,19 @@ export namespace Endabgabe {
 
 
             else if (q.pathname == "/anzeige") {
-                //let accounts: User[] = await accountsAnzeigen();
-                //_response.write(JSON.stringify(accounts));
-
-                let rezepte: Rezept[] = await rezeptAnzeigen();
-                _response.write(JSON.stringify(rezepte));
-            }
-
-
-            else if (q.pathname == "/meineRezepte.html") {
-                let rezept: Rezept = {
-                    "titel": data.titel,
-                    "zutat1": data.zutat1,
-                    "zutat2": data.zutat2,
-                    "zutat3": data.zutat3,
-                    "zutat4": data.zutat4,
-                    "zutat5": data.zutat5,
-                    "zutat6": data.zutat6,
-                    "zutat7": data.zutat7,
-                    "zutat8": data.zutat8,
-                    "zutat9": data.zutat9,
-                    "zutat10": data.zutat10,
-                    "zubereitung": data.zubereitung
-                };
-                _response.write(await registriereRezept(rezept));
+                let accounts: User[] = await accountsAnzeigen();
+                _response.write(JSON.stringify(accounts));
             }
 
         }
+
         _response.end();
+        // Es wird ein Header erstellt und da die request auf einer neuen Seite ausgegeben.
     }
 
-    //User registrieren
     async function registriereUser(_user: User): Promise<string> {
+        //überprüfen ob es schon ein Konto mit der Mailadresse gibt
+        //countDocuments
 
         let countDocuments: number = await userCollection.countDocuments({ "email": _user.email });
 
@@ -142,7 +110,6 @@ export namespace Endabgabe {
         }
     }
 
-    // User anmelden
     async function anmelden(_email: string, _passwort: string): Promise<string> {
 
         let countDocuments: number = await userCollection.countDocuments({ "email": _email, "passwort": _passwort });
@@ -154,26 +121,12 @@ export namespace Endabgabe {
         }
     }
 
-    // User anzeigen
-    /*
     async function accountsAnzeigen(): Promise<User[]> {
         let accounts: User[] = await userCollection.find().toArray();
         return accounts;
     }
-    */
 
-    // Rezepte anzeigen
-    async function rezeptAnzeigen(): Promise<Rezept[]> {
-        let rezepte: Rezept[] = await rezeptCollection.find().toArray();
-        return rezepte;
-    }
 
-    
 
-    //rezept hinzufügen
-    async function registriereRezept(_rezept: Rezept): Promise<void> {
-        await rezeptCollection.insertOne(_rezept);
-        console.log("Rezept hinzugefügt");
-    }
 
 }

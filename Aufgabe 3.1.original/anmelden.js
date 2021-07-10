@@ -11,18 +11,14 @@ async function submitToServer(_event) {
     //console.log(url);
     let response = await fetch(fetchUrl);
     let responseText = await response.text();
-    console.log(response);
-    console.log("Response Text: " + responseText);
+    //console.log(response);
+    //alert("Response Text: " + responseText);
     //Antwort auf der Seite ausgeben
     let selectElement = document.querySelector(".ausgabe");
     //selectElement.appendChild(document.createTextNode(responseText));
     let paragraph = document.createElement("div");
     paragraph.innerText = responseText;
     selectElement.appendChild(paragraph);
-    if (responseText == "angemeldet") {
-        window.location.href = "anzeige.html";
-        localStorage.clear();
-        //localStorage.setItem("username", username);
-    }
+    //selectElement.appendChild(document.createTextNode("\n"));
 }
 //# sourceMappingURL=anmelden.js.map

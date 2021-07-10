@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="rezepte.css"/>
+    <link rel="stylesheet" type="text/css" href="meineRezepte.css"/>
+    <script src="meineRezepte.js"></script>
+    <title>Meine Rezepte</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menü">
+            <a class="auswahl" href=anzeige.html>Alle Rezepte</a>
+            <a class="auswahl" href=favoriten.html>Favoriten</a>
+            <a class="auswahl" href=meineRezepte.html>Meine Rezepte</a>
+        </div>
+
+      <h1>Meine Rezepte</h1>
+      <div class="col span-1-of-2">
+          <h2>Meine Rezepte</h2>
+          <div class="ausgabe">
+
+          </div>
+          <button id="bearbeiten-button" type="button"  name="bearbeiten">Bearbeiten</button>
+          <button id="löschen-button" type="button"  name="löschen">Löschen</button>
+      </div>
+
+      <form  id="register-form">
+      <div class="col span-1-of-2">
+          <h2>Rezept erstellen</h2>
+          <h3>Titel</h3>
+          <input type="text" name="titel"/><br/>
+          <h3>Zutaten</h3>
+          <input type="text" name="zutat1"/>
+          <input type="text" name="zutat2"/>
+          <input type="text" name="zutat3"/>
+          <input type="text" name="zutat4"/>
+          <input type="text" name="zutat5"/>
+          <input type="text" name="zutat6"/>
+          <input type="text" name="zutat7"/>
+          <input type="text" name="zutat8"/>
+          <input type="text" name="zutat9"/>
+          <input type="text" name="zutat10"/>
+
+          <h3>Zubereitung</h3>
+          <input type="text" name="zubereitung"/>
+
+          <button id="send-button" type="button"  name="abschicken">Erstellen</button>
+          
+      </div>
+    </form>
+      
+      <!-- 
+      <form  id="register-form">
+          <button id="anzeige-button" type="button" name="abschicken">Anzeigen</button>
+        </form>
+
+      <div class="ausgabe">
+        
+      </div>
+       -->
+      
+    </div>
+    
+</body>
+</html>

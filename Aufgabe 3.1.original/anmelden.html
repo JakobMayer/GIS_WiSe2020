@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="anmelden.js" defer ></script>
+    
+  </head>
+  
+  <body>
+    <div class="container">
+        <div class="menü">
+            <a class="auswahl" href=anzeige.html>Nutzerkonten</a>
+            <a class="auswahl" href=anmelden.html>Anmelden</a>
+            <a class="auswahl" href=index.html>Kontaktformular</a>
+        </div>
+
+      <h1>Anmelden</h1>
+      <form  id="register-form">
+        <label for="email">E-Mail</label><br />
+        <input type="text" name="email"/><br /><br />
+        <label for="passwort">Passwort</label><br />
+        <input type="text" name="passwort"/><br /><br />
+
+        <button id="send-button" type="button" data-request-target="einloggen"  name="abschicken">Anmelden</button>
+      </form>
+
+      <div class="ausgabe">
+        
+      </div>
+
+    </div>
+  </body>
+</html>
