@@ -20,8 +20,6 @@ var Endabgabe;
     let mongoUrl = "mongodb+srv://Beispiel_User:12345@cluster2000.9tkvz.mongodb.net/Test?retryWrites=true&w=majority";
     let userCollection;
     let rezeptCollection;
-    console.log("Database connection", userCollection != undefined);
-    console.log("Database connection", rezeptCollection != undefined);
     async function conectMongo(_url) {
         let mongoClient = new Mongo.MongoClient(mongoUrl);
         await mongoClient.connect();

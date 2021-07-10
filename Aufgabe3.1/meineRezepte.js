@@ -2,8 +2,8 @@
 var Endabgabe;
 (function (Endabgabe) {
     let erstellen = document.getElementById("submit");
-    erstellen.addEventListener("click", submitToServer);
     console.log("SubmitToServer wird angefangen");
+    erstellen.addEventListener("click", submitToServer);
     /*
     let bearbeiten: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bearbeiten-button");
     erstellen.addEventListener("click", handleBearbeiten);

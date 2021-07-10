@@ -46,9 +46,6 @@ export namespace Endabgabe {
     let userCollection: Mongo.Collection;
     let rezeptCollection: Mongo.Collection;
 
-    console.log("Database connection", userCollection != undefined);
-    console.log("Database connection", rezeptCollection != undefined);
-
 
     async function conectMongo(_url: string): Promise<void> {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoUrl);

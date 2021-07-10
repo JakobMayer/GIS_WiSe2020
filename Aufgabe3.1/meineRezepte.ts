@@ -1,9 +1,9 @@
 namespace Endabgabe {
 
     let erstellen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("submit");
+    console.log("SubmitToServer wird angefangen");
     erstellen.addEventListener("click", submitToServer);
     
-    console.log("SubmitToServer wird angefangen");
     /*
     let bearbeiten: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bearbeiten-button");
     erstellen.addEventListener("click", handleBearbeiten);
