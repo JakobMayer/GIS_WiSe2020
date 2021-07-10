@@ -46,6 +46,7 @@ export namespace Endabgabe {
     let userCollection: Mongo.Collection;
     let rezeptCollection: Mongo.Collection;
 
+    console.log("Database connection", userCollection != undefined);
     console.log("Database connection", rezeptCollection != undefined);
 
 
