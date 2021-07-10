@@ -82,6 +82,16 @@ input {
     margin: 0 auto 25px auto;
 }
 
+.ausgabe > div {
+    width: 80%;
+    padding: 1px 25px 10px 25px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 0 33px rgba(0, 0, 0, 0.137);
+    margin-bottom: 45px;
+    margin: 0 auto 25px auto;
+}
+
 .rezept:last-child {margin-bottom: 40px;}
 
 .ausgabe { color: red;font-size: 20px;}
@@ -103,6 +113,10 @@ button {
 button:hover {background-color: #e67e25; color: white;}
 
 #favorisieren-button {
+    float: right;
+}
+
+h2 + button {
     float: right;
 }
 

@@ -44,9 +44,29 @@ var anzeigen;
         console.log(rezepte);
         let selectElement = document.querySelector(".ausgabe");
         for (let rezeptCollection of rezepte) {
-            let paragraph = document.createElement("div");
-            paragraph.innerText = rezeptCollection.titel + " " + rezeptCollection.zutat1 + " " + rezeptCollection.zutat2 + " " + rezeptCollection.zutat3 + " " + rezeptCollection.zutat4 + " " + rezeptCollection.zutat5 + " " + rezeptCollection.zutat6 + " " + rezeptCollection.zutat7 + " " + rezeptCollection.zutat8 + " " + rezeptCollection.zutat9 + " " + rezeptCollection.zutat10 + " " + rezeptCollection.zubereitung;
-            selectElement.appendChild(paragraph);
+            let rezept = document.createElement("div");
+            selectElement.appendChild(rezept);
+            let rezeptTitel = document.createElement("h2");
+            rezeptTitel.textContent = rezeptCollection["titel"];
+            rezept.appendChild(rezeptTitel);
+            let favButton = document.createElement("button");
+            favButton.textContent = "Favorisieren";
+            rezept.appendChild(favButton);
+            let zutatenSchrift = document.createElement("h3");
+            zutatenSchrift.textContent = "Zutaten";
+            rezept.appendChild(zutatenSchrift);
+            let zutaten = document.createElement("p");
+            zutaten.innerText = rezeptCollection.zutat1 + " " + rezeptCollection.zutat2 + " " + rezeptCollection.zutat3 + " " + rezeptCollection.zutat4 + " " + rezeptCollection.zutat5 + " " + rezeptCollection.zutat6 + " " + rezeptCollection.zutat7 + " " + rezeptCollection.zutat8 + " " + rezeptCollection.zutat9 + " " + rezeptCollection.zutat10;
+            rezept.appendChild(zutaten);
+            let zubereitungsSchrift = document.createElement("h3");
+            zubereitungsSchrift.textContent = "Zubereitung";
+            rezept.appendChild(zubereitungsSchrift);
+            let zubereitung = document.createElement("p");
+            zubereitung.textContent = rezeptCollection["zubereitung"];
+            rezept.appendChild(zubereitung);
+            //let paragraph: HTMLDivElement = document.createElement("div");
+            //paragraph.innerText = rezeptCollection.titel + " " + rezeptCollection.zutat1 + " " + rezeptCollection.zutat2 + " " + rezeptCollection.zutat3 + " " + rezeptCollection.zutat4 + " " + rezeptCollection.zutat5 + " " + rezeptCollection.zutat6 + " " + rezeptCollection.zutat7 + " " + rezeptCollection.zutat8 + " " + rezeptCollection.zutat9 + " " + rezeptCollection.zutat10 + " " + rezeptCollection.zubereitung;
+            //selectElement.appendChild(paragraph);
         }
     }
 })(anzeigen || (anzeigen = {}));
