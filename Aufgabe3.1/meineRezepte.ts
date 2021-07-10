@@ -1,10 +1,9 @@
-namespace meineRezepte {
+namespace Endabgabe {
 
-    
-    let erstellen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send-button");
+    let erstellen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("submit");
     erstellen.addEventListener("click", submitToServer);
-    console.log("Hallo");
     
+    console.log("SubmitToServer wird angefangen");
     /*
     let bearbeiten: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bearbeiten-button");
     erstellen.addEventListener("click", handleBearbeiten);
@@ -14,7 +13,7 @@ namespace meineRezepte {
     */
    
     let url: string = "https://gisapplication.herokuapp.com/";
-    
+   
     async function submitToServer(_event: Event): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
         let query: URLSearchParams = new URLSearchParams(<any>formData);

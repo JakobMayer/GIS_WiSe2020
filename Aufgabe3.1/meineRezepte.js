@@ -1,9 +1,9 @@
 "use strict";
-var meineRezepte;
-(function (meineRezepte) {
-    let erstellen = document.getElementById("send-button");
+var Endabgabe;
+(function (Endabgabe) {
+    let erstellen = document.getElementById("submit");
     erstellen.addEventListener("click", submitToServer);
-    console.log("Hallo");
+    console.log("SubmitToServer wird angefangen");
     /*
     let bearbeiten: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bearbeiten-button");
     erstellen.addEventListener("click", handleBearbeiten);
@@ -36,5 +36,5 @@ var meineRezepte;
         
     }
     */
-})(meineRezepte || (meineRezepte = {}));
+})(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=meineRezepte.js.map

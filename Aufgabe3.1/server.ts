@@ -154,13 +154,7 @@ export namespace Endabgabe {
         }
     }
 
-    // User anzeigen
-    /*
-    async function accountsAnzeigen(): Promise<User[]> {
-        let accounts: User[] = await userCollection.find().toArray();
-        return accounts;
-    }
-    */
+
 
     // Rezepte anzeigen
     async function rezeptAnzeigen(): Promise<Rezept[]> {
@@ -171,9 +165,15 @@ export namespace Endabgabe {
     
 
     //rezept hinzufügen
-    async function registriereRezept(_rezept: Rezept): Promise<void> {
-        await rezeptCollection.insertOne(_rezept);
-        console.log("Rezept hinzugefügt");
+    async function registriereRezept(_rezept: Rezept): Promise<string> {
+        let countDocuments: number = await rezeptCollection.countDocuments({"titel": _rezept.titel});
+        if (countDocuments > 0) {
+            return "Rezept bereits vorhanden";
+        } else {
+            await rezeptCollection.insertOne(_rezept);
+            console.log("Rezept hinzugefügt");
+            return "Rezept hinzugefügt";
+        }
     }
 
 }

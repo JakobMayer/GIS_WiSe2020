@@ -100,13 +100,6 @@ var Endabgabe;
             return "falsche Daten eingegeben";
         }
     }
-    // User anzeigen
-    /*
-    async function accountsAnzeigen(): Promise<User[]> {
-        let accounts: User[] = await userCollection.find().toArray();
-        return accounts;
-    }
-    */
     // Rezepte anzeigen
     async function rezeptAnzeigen() {
         let rezepte = await rezeptCollection.find().toArray();
@@ -114,8 +107,15 @@ var Endabgabe;
     }
     //rezept hinzufügen
     async function registriereRezept(_rezept) {
-        await rezeptCollection.insertOne(_rezept);
-        console.log("Rezept hinzugefügt");
+        let countDocuments = await rezeptCollection.countDocuments({ "titel": _rezept.titel });
+        if (countDocuments > 0) {
+            return "Rezept bereits vorhanden";
+        }
+        else {
+            await rezeptCollection.insertOne(_rezept);
+            console.log("Rezept hinzugefügt");
+            return "Rezept hinzugefügt";
+        }
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map
