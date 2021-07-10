@@ -2,20 +2,20 @@ namespace meineRezepte {
 
     
     let erstellen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send-button");
-    erstellen.addEventListener("click", submitToServer);
-
+    erstellen.addEventListener("click", test);
+    console.log("Hallo");
+    
     /*
     let bearbeiten: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bearbeiten-button");
     erstellen.addEventListener("click", handleBearbeiten);
-
+    
     let löschen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("löschen-button");
     erstellen.addEventListener("click", handleLöschen);
     */
-    
+   
     let url: string = "https://gisapplication.herokuapp.com/";
     
     async function submitToServer(_event: Event): Promise<void> {
-        console.log("Hallo");
         let formData: FormData = new FormData(document.forms[0]);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         console.log("Formulardaten " + formData);
@@ -44,4 +44,9 @@ namespace meineRezepte {
         
     }
     */
+
+    function test():void{
+
+        console.log("test erfolgreich");
+    }
 }
