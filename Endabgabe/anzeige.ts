@@ -8,6 +8,7 @@ namespace anzeigen {
 
 
     //accountsAnzeigen();
+    /*
     async function accountsAnzeigen(): Promise<void> {
         console.log("Nutzerkonten werden angezeigt");
         //let users: Mongo.Collection = db("Test").collection("Students");
@@ -33,6 +34,7 @@ namespace anzeigen {
             selectElement.appendChild(paragraph);
         }
     }
+    */
 
     rezepteAnzeigen();
     async function rezepteAnzeigen(): Promise<void> {

@@ -2,7 +2,7 @@ namespace meineRezepte {
 
     
     let erstellen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send-button");
-    erstellen.addEventListener("click", test);
+    erstellen.addEventListener("click", submitToServer);
     console.log("Hallo");
     
     /*
@@ -45,8 +45,4 @@ namespace meineRezepte {
     }
     */
 
-    function test():void{
-
-        console.log("test erfolgreich");
-    }
 }

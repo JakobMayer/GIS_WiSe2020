@@ -46,6 +46,8 @@ export namespace Endabgabe {
     let userCollection: Mongo.Collection;
     let rezeptCollection: Mongo.Collection;
 
+    console.log("Database connection", rezeptCollection != undefined);
+
 
     async function conectMongo(_url: string): Promise<void> {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoUrl);
@@ -152,10 +154,12 @@ export namespace Endabgabe {
     }
 
     // User anzeigen
+    /*
     async function accountsAnzeigen(): Promise<User[]> {
         let accounts: User[] = await userCollection.find().toArray();
         return accounts;
     }
+    */
 
     // Rezepte anzeigen
     async function rezeptAnzeigen(): Promise<Rezept[]> {

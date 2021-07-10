@@ -20,6 +20,7 @@ var Endabgabe;
     let mongoUrl = "mongodb+srv://Beispiel_User:12345@cluster2000.9tkvz.mongodb.net/Test?retryWrites=true&w=majority";
     let userCollection;
     let rezeptCollection;
+    console.log("Database connection", rezeptCollection != undefined);
     async function conectMongo(_url) {
         let mongoClient = new Mongo.MongoClient(mongoUrl);
         await mongoClient.connect();
@@ -99,10 +100,12 @@ var Endabgabe;
         }
     }
     // User anzeigen
-    async function accountsAnzeigen() {
-        let accounts = await userCollection.find().toArray();
+    /*
+    async function accountsAnzeigen(): Promise<User[]> {
+        let accounts: User[] = await userCollection.find().toArray();
         return accounts;
     }
+    */
     // Rezepte anzeigen
     async function rezeptAnzeigen() {
         let rezepte = await rezeptCollection.find().toArray();

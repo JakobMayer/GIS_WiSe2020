@@ -2,7 +2,7 @@
 var meineRezepte;
 (function (meineRezepte) {
     let erstellen = document.getElementById("send-button");
-    erstellen.addEventListener("click", test);
+    erstellen.addEventListener("click", submitToServer);
     console.log("Hallo");
     /*
     let bearbeiten: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bearbeiten-button");
@@ -36,8 +36,5 @@ var meineRezepte;
         
     }
     */
-    function test() {
-        console.log("test erfolgreich");
-    }
 })(meineRezepte || (meineRezepte = {}));
 //# sourceMappingURL=meineRezepte.js.map
