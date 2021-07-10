@@ -95,8 +95,11 @@ export namespace Endabgabe {
 
 
             else if (q.pathname == "/anzeige") {
-                let accounts: User[] = await accountsAnzeigen();
-                _response.write(JSON.stringify(accounts));
+                //let accounts: User[] = await accountsAnzeigen();
+                //_response.write(JSON.stringify(accounts));
+
+                let rezepte: Rezept[] = await rezeptAnzeigen();
+                _response.write(JSON.stringify(rezepte));
             }
 
 
@@ -153,6 +156,14 @@ export namespace Endabgabe {
         let accounts: User[] = await userCollection.find().toArray();
         return accounts;
     }
+
+    // Rezepte anzeigen
+    async function rezeptAnzeigen(): Promise<Rezept[]> {
+        let rezepte: Rezept[] = await rezeptCollection.find().toArray();
+        return rezepte;
+    }
+
+    
 
     //rezept hinzufügen
     async function registriereRezept(_rezept: Rezept): Promise<void> {

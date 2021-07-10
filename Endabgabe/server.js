@@ -51,8 +51,10 @@ var Endabgabe;
                 _response.write(await anmelden(data.email, data.passwort));
             }
             else if (q.pathname == "/anzeige") {
-                let accounts = await accountsAnzeigen();
-                _response.write(JSON.stringify(accounts));
+                //let accounts: User[] = await accountsAnzeigen();
+                //_response.write(JSON.stringify(accounts));
+                let rezepte = await rezeptAnzeigen();
+                _response.write(JSON.stringify(rezepte));
             }
             else if (q.pathname == "/meineRezepte.html") {
                 let rezept = {
@@ -100,6 +102,11 @@ var Endabgabe;
     async function accountsAnzeigen() {
         let accounts = await userCollection.find().toArray();
         return accounts;
+    }
+    // Rezepte anzeigen
+    async function rezeptAnzeigen() {
+        let rezepte = await rezeptCollection.find().toArray();
+        return rezepte;
     }
     //rezept hinzufügen
     async function registriereRezept(_rezept) {
