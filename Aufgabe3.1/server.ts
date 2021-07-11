@@ -9,10 +9,10 @@ export namespace Endabgabe {
     console.log("Starting server");
     
     let port: number = Number(process.env.PORT);
-    //Wenn der port nicht definiert ist bzw keiner von heroku zugewiesen wurde, wird der port nr. 8100 aufgerufen
     if (!port)
         port = 8100;
 
+    
     //Server erstellen
     let server: Http.Server = Http.createServer();
     server.addListener("request", handleRequest);
@@ -50,7 +50,7 @@ export namespace Endabgabe {
     async function conectMongo(_url: string): Promise<void> {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(mongoUrl);
         await mongoClient.connect();
-        //console.log("Mongo verbunden");
+       
         userCollection = mongoClient.db("Test").collection("User");
         rezeptCollection = mongoClient.db("Test").collection("Rezepte");
     }
@@ -137,7 +137,6 @@ export namespace Endabgabe {
 
         if (countDocuments > 0) {
             return "Mailadresse bereits vergeben";
-            //TODO: An Client weitergeben
         } else {
             await userCollection.insertOne(_user);
             return "Neuer Account erstellt";
@@ -165,7 +164,7 @@ export namespace Endabgabe {
 
     
 
-    //rezept hinzufügen
+    // Rezept hinzufügen
     async function registriereRezept(_rezept: Rezept): Promise<string> {
         let countDocuments: number = await rezeptCollection.countDocuments({ "titel": _rezept.titel });
 

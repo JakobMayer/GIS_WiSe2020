@@ -9,7 +9,6 @@ var Endabgabe;
 (function (Endabgabe) {
     console.log("Starting server");
     let port = Number(process.env.PORT);
-    //Wenn der port nicht definiert ist bzw keiner von heroku zugewiesen wurde, wird der port nr. 8100 aufgerufen
     if (!port)
         port = 8100;
     //Server erstellen
@@ -23,7 +22,6 @@ var Endabgabe;
     async function conectMongo(_url) {
         let mongoClient = new Mongo.MongoClient(mongoUrl);
         await mongoClient.connect();
-        //console.log("Mongo verbunden");
         userCollection = mongoClient.db("Test").collection("User");
         rezeptCollection = mongoClient.db("Test").collection("Rezepte");
     }
@@ -83,7 +81,6 @@ var Endabgabe;
         let countDocuments = await userCollection.countDocuments({ "email": _user.email });
         if (countDocuments > 0) {
             return "Mailadresse bereits vergeben";
-            //TODO: An Client weitergeben
         }
         else {
             await userCollection.insertOne(_user);
@@ -105,7 +102,7 @@ var Endabgabe;
         let rezepte = await rezeptCollection.find().toArray();
         return rezepte;
     }
-    //rezept hinzufügen
+    // Rezept hinzufügen
     async function registriereRezept(_rezept) {
         let countDocuments = await rezeptCollection.countDocuments({ "titel": _rezept.titel });
         if (countDocuments > 0) {

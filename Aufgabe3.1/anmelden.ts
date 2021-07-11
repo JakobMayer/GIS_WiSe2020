@@ -19,7 +19,7 @@ async function submitToServer(_event: Event): Promise<void> {
     let userName: string = (<HTMLInputElement><unknown>document.getElementById("userName")).value; 
     localStorage.clear();
     localStorage.setItem("userName", userName);
-    //console.log(localStorage.getItem("userName"));
+    console.log(localStorage.getItem("userName"));
 
     //Antwort auf der Seite ausgeben
     let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
@@ -32,6 +32,5 @@ async function submitToServer(_event: Event): Promise<void> {
         window.location.href = "anzeige.html";
 
         localStorage.clear();
-        //localStorage.setItem("username", username);
     }
 }

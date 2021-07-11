@@ -14,7 +14,7 @@ async function submitToServer(_event) {
     let userName = document.getElementById("userName").value;
     localStorage.clear();
     localStorage.setItem("userName", userName);
-    //console.log(localStorage.getItem("userName"));
+    console.log(localStorage.getItem("userName"));
     //Antwort auf der Seite ausgeben
     let selectElement = document.querySelector(".ausgabe");
     let paragraph = document.createElement("div");
@@ -23,7 +23,6 @@ async function submitToServer(_event) {
     if (responseText == "angemeldet") {
         window.location.href = "anzeige.html";
         localStorage.clear();
-        //localStorage.setItem("username", username);
     }
 }
 //# sourceMappingURL=anmelden.js.map

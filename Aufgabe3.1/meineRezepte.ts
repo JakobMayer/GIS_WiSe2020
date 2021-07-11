@@ -12,6 +12,8 @@ namespace meineRezepte {
     let löschen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("löschen-button");
     erstellen.addEventListener("click", handleLöschen);
     */
+    
+    console.log(localStorage.getItem("userName"));
    
     async function submitToServer(_event: Event): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
@@ -39,6 +41,7 @@ namespace meineRezepte {
         
     }
     */
+
 
     //Idee um meine Rezepte auszugeben: username in Local Storage speichern und beim erstellen eines neuen Rezepts den username
     // mit dem Rezept in der Datenbank speichern. ÜBer eine Schleife in der Datenbank nach dem Namen des users suchen und alle Rezepte
