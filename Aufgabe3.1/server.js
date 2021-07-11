@@ -71,7 +71,7 @@ var Endabgabe;
                     "zutat10": data.zutat10,
                     "zubereitung": data.zubereitung
                 };
-                _response.write(await registriereRezept(rezept));
+                await rezeptCollection.insertOne(rezept);
             }
         }
         _response.end();
@@ -104,10 +104,12 @@ var Endabgabe;
         return rezepte;
     }
     //rezept hinzufügen
-    async function registriereRezept(_rezept) {
+    /*async function registriereRezept(_rezept: Rezept): Promise<string> {
+        
         await rezeptCollection.insertOne(_rezept);
         console.log("Rezept hinzugefügt");
         return "Rezept hinzugefügt";
     }
+    */
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

@@ -119,7 +119,7 @@ export namespace Endabgabe {
                     "zutat10": data.zutat10,
                     "zubereitung": data.zubereitung
                 };
-                _response.write(await registriereRezept(rezept));
+                await rezeptCollection.insertOne(rezept);
             }
 
         }
@@ -153,7 +153,6 @@ export namespace Endabgabe {
     }
 
 
-
     // Rezepte anzeigen
     async function rezeptAnzeigen(): Promise<Rezept[]> {
         let rezepte: Rezept[] = await rezeptCollection.find().toArray();
@@ -163,11 +162,12 @@ export namespace Endabgabe {
     
 
     //rezept hinzufügen
-    async function registriereRezept(_rezept: Rezept): Promise<string> {
+    /*async function registriereRezept(_rezept: Rezept): Promise<string> {
         
         await rezeptCollection.insertOne(_rezept);
         console.log("Rezept hinzugefügt");
         return "Rezept hinzugefügt"; 
     }
+    */
 
 }

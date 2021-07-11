@@ -14,10 +14,8 @@ namespace meineRezepte {
     */
    
     async function submitToServer(_event: Event): Promise<void> {
-
         let formData: FormData = new FormData(document.forms[0]);
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        console.log("Formulardaten " + formData);
 
         let fetchUrl: string = url + "meineRezepte" + "?" + query.toString();
 
@@ -31,7 +29,8 @@ namespace meineRezepte {
         paragraph.innerText = responseText;
         selectElement.appendChild(paragraph);
 
-        //window.location.href = "meineRezepte.html";
+        
+
     }
 
     /*
