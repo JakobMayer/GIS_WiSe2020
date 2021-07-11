@@ -38,6 +38,7 @@ var Endabgabe;
     }
     async function löscheRezept(rezeptName) {
         //Rezept aus Favoriten löschen
+        console.log("Aus Favoriten entfernt");
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=favoriten.js.map

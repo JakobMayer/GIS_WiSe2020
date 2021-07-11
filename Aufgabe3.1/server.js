@@ -71,7 +71,7 @@ var Endabgabe;
                 };
                 _response.write(await registriereRezept(rezept));
             }
-            else if (q.pathname == "(favoriten") {
+            else if (q.pathname == "favoriten") {
                 let rezepte = await rezeptAnzeigen();
                 _response.write(JSON.stringify(rezepte));
             }

@@ -4,7 +4,7 @@ namespace Endabgabe {
     let fetchUrl: string = url + "favoriten";
 
     rezepteAnzeigen();
-    async function rezepteAnzeigen(): Promise<> {
+    async function rezepteAnzeigen(): Promise<void> {
         console.log("Rezepte werden angezeigt");
         console.log(fetchUrl);
 
@@ -62,7 +62,8 @@ namespace Endabgabe {
         }
     }
 
-    async function löscheRezept(rezeptName:string): Promise<void> {
+    async function löscheRezept(rezeptName: string): Promise<void> {
         //Rezept aus Favoriten löschen
+        console.log("Aus Favoriten entfernt");
     }
 }
