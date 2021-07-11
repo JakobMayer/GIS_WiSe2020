@@ -10,7 +10,6 @@ var registrieren;
         let formData = new FormData(document.forms[0]);
         let query = new URLSearchParams(formData);
         let fetchUrl = registerUrl + "index" + "?" + query.toString();
-        //console.log(url);
         let response = await fetch(fetchUrl);
         let responseText = await response.text();
         console.log("Response Text: " + responseText);

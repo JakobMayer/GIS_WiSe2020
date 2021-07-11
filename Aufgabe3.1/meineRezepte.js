@@ -1,9 +1,9 @@
 "use strict";
-var Endabgabe;
-(function (Endabgabe) {
-    let erstellen = document.getElementById("submit");
-    console.log("SubmitToServer wird angefangen");
-    erstellen.addEventListener("click", submitToServer);
+var meineRezepte;
+(function (meineRezepte) {
+    let sendButton = document.getElementById("submit-button");
+    sendButton.addEventListener("click", submitToServer);
+    let url = "https://gisapplication.herokuapp.com/";
     /*
     let bearbeiten: HTMLButtonElement = <HTMLButtonElement>document.getElementById("bearbeiten-button");
     erstellen.addEventListener("click", handleBearbeiten);
@@ -11,7 +11,6 @@ var Endabgabe;
     let löschen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("löschen-button");
     erstellen.addEventListener("click", handleLöschen);
     */
-    let url = "https://gisapplication.herokuapp.com/";
     async function submitToServer(_event) {
         let formData = new FormData(document.forms[0]);
         let query = new URLSearchParams(formData);
@@ -21,7 +20,7 @@ var Endabgabe;
         let responseText = await response.text();
         console.log("Response Text: " + responseText);
         //Antwort auf der Seite ausgeben
-        let selectElement = document.querySelector(".ausgabe");
+        let selectElement = document.querySelector(".ausgabe2");
         let paragraph = document.createElement("div");
         paragraph.innerText = responseText;
         selectElement.appendChild(paragraph);
@@ -36,5 +35,5 @@ var Endabgabe;
         
     }
     */
-})(Endabgabe || (Endabgabe = {}));
+})(meineRezepte || (meineRezepte = {}));
 //# sourceMappingURL=meineRezepte.js.map

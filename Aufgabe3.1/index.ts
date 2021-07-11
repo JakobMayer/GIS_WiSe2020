@@ -12,7 +12,6 @@ namespace registrieren {
         let query: URLSearchParams = new URLSearchParams(<any>formData);
 
         let fetchUrl: string = registerUrl + "index" + "?" + query.toString();
-        //console.log(url);
 
         let response: Response = await fetch(fetchUrl);
         let responseText: string = await response.text();

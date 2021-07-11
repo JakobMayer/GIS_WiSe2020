@@ -105,15 +105,9 @@ var Endabgabe;
     }
     //rezept hinzufügen
     async function registriereRezept(_rezept) {
-        let countDocuments = await rezeptCollection.countDocuments({ "titel": _rezept.titel });
-        if (countDocuments > 0) {
-            return "Rezept bereits vorhanden";
-        }
-        else {
-            await rezeptCollection.insertOne(_rezept);
-            console.log("Rezept hinzugefügt");
-            return "Rezept hinzugefügt";
-        }
+        await rezeptCollection.insertOne(_rezept);
+        console.log("Rezept hinzugefügt");
+        return "Rezept hinzugefügt";
     }
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

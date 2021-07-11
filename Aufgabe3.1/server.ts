@@ -104,6 +104,7 @@ export namespace Endabgabe {
 
 
             else if (q.pathname == "/meineRezepte.html") {
+                
                 let rezept: Rezept = {
                     "titel": data.titel,
                     "zutat1": data.zutat1,
@@ -163,14 +164,10 @@ export namespace Endabgabe {
 
     //rezept hinzufügen
     async function registriereRezept(_rezept: Rezept): Promise<string> {
-        let countDocuments: number = await rezeptCollection.countDocuments({"titel": _rezept.titel});
-        if (countDocuments > 0) {
-            return "Rezept bereits vorhanden";
-        } else {
-            await rezeptCollection.insertOne(_rezept);
-            console.log("Rezept hinzugefügt");
-            return "Rezept hinzugefügt";
-        }
+        
+        await rezeptCollection.insertOne(_rezept);
+        console.log("Rezept hinzugefügt");
+        return "Rezept hinzugefügt"; 
     }
 
 }
