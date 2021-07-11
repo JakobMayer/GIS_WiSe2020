@@ -56,7 +56,7 @@ var Endabgabe;
                 let rezepte = await rezeptAnzeigen();
                 _response.write(JSON.stringify(rezepte));
             }
-            else if (q.pathname == "/meineRezepte.html") {
+            else if (q.pathname == "/meineRezepte") {
                 let rezept = {
                     "titel": data.titel,
                     "zutat1": data.zutat1,
@@ -105,10 +105,14 @@ var Endabgabe;
     }
     //rezept hinzufügen
     /*async function registriereRezept(_rezept: Rezept): Promise<string> {
-        
-        await rezeptCollection.insertOne(_rezept);
-        console.log("Rezept hinzugefügt");
-        return "Rezept hinzugefügt";
+        let countDocuments: number = await rezeptCollection.countDocuments({ "titrl": _rezept.titel });
+
+        if (countDocuments > 0) {
+            return "Rezept bereits vorhanden";
+        } else {
+            await rezeptCollection.insertOne(_rezept);
+            return "Neues Rezept erstellt";
+        }
     }
     */
 })(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
