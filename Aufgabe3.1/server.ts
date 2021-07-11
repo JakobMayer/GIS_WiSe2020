@@ -119,7 +119,8 @@ export namespace Endabgabe {
                     "zutat10": data.zutat10,
                     "zubereitung": data.zubereitung
                 };
-                await rezeptCollection.insertOne(rezept);
+                //await rezeptCollection.insertOne(rezept);
+                _response.write (await registriereRezept(rezept));
             }
 
         }
@@ -162,7 +163,7 @@ export namespace Endabgabe {
     
 
     //rezept hinzufügen
-    /*async function registriereRezept(_rezept: Rezept): Promise<string> {
+    async function registriereRezept(_rezept: Rezept): Promise<string> {
         let countDocuments: number = await rezeptCollection.countDocuments({ "titrl": _rezept.titel });
 
         if (countDocuments > 0) {
@@ -172,6 +173,6 @@ export namespace Endabgabe {
             return "Neues Rezept erstellt";
         }
     }
-    */
+    
 
 }
