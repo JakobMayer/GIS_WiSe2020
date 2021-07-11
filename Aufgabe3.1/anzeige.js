@@ -6,10 +6,9 @@ var Endabgabe;
     let fetchUrl = anzeigeUrl + "anzeige";
     rezepteAnzeigen();
     async function rezepteAnzeigen() {
-        console.log("Rezepte werden angezeigt");
-        console.log(fetchUrl);
+        //console.log("Rezepte werden angezeigt");
+        //console.log(fetchUrl);
         let response = await fetch(fetchUrl);
-        console.log("Response: " + response);
         let rezepte = await response.json();
         console.log(rezepte);
         let selectElement = document.querySelector(".ausgabe");
@@ -22,7 +21,7 @@ var Endabgabe;
             let favButton = document.createElement("button");
             favButton.textContent = "Favorisieren";
             rezept.appendChild(favButton);
-            //favButton.addEventListener("click", () => favorisiereRezept(rezeptCollection.user, rezeptCollection.titel));
+            favButton.addEventListener("click", favorisiereRezept);
             let zutatenSchrift = document.createElement("h3");
             zutatenSchrift.textContent = "Zutaten";
             rezept.appendChild(zutatenSchrift);
@@ -37,8 +36,9 @@ var Endabgabe;
             rezept.appendChild(zubereitung);
         }
     }
-    async function favorisiereRezept(rezeptAutor, rezeptName) {
+    async function favorisiereRezept() {
         //Rezept zu Favoriten hinzufügen
+        alert("Zu Favoriten hinzugefügt");
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=anzeige.js.map

@@ -91,4 +91,5 @@ label {
 @media only screen and (max-width: 375px) {
   h1 {font-size: 35px;}
   .container {width: 280px;margin-top: 120px;}
+  #send-button {margin-left: 40%;}
 }

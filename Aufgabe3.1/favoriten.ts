@@ -5,8 +5,6 @@ namespace Endabgabe {
 
     rezepteAnzeigen();
     async function rezepteAnzeigen(): Promise<void> {
-        console.log("Rezepte werden angezeigt");
-        console.log(fetchUrl);
 
         interface Rezept {
             "titel": string;
@@ -24,10 +22,9 @@ namespace Endabgabe {
         }
         
         let response: Response = await fetch(fetchUrl);
-        console.log("Response: " + response);
+        //console.log("Response: " + response);
         let rezepte: Rezept[] = await response.json();
-        console.log(rezepte);
-
+        
         let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
 
         for (let rezeptCollection of rezepte) {
@@ -42,7 +39,7 @@ namespace Endabgabe {
             let löschButton: HTMLElement = document.createElement("button");
             löschButton.textContent = "Löschen";
             rezept.appendChild(löschButton);
-            löschButton.addEventListener("click", () => löscheRezept(rezeptCollection.titel));
+            löschButton.addEventListener("click", löscheRezept);
 
             let zutatenSchrift: HTMLElement = document.createElement("h3");
             zutatenSchrift.textContent = "Zutaten";
@@ -62,8 +59,8 @@ namespace Endabgabe {
         }
     }
 
-    async function löscheRezept(rezeptName: string): Promise<void> {
+    async function löscheRezept(): Promise<void> {
         //Rezept aus Favoriten löschen
-        console.log("Aus Favoriten entfernt");
+        alert("Rezept aus Favoriten entfernt");
     }
 }

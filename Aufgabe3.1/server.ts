@@ -121,7 +121,7 @@ export namespace Endabgabe {
             }
 
 
-            else if (q.pathname == "favoriten") {
+            else if (q.pathname == "/favoriten") {
                 let rezepte: Rezept[] = await rezeptAnzeigen();
                 _response.write(JSON.stringify(rezepte));
             }

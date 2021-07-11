@@ -5,12 +5,9 @@ var Endabgabe;
     let fetchUrl = url + "favoriten";
     rezepteAnzeigen();
     async function rezepteAnzeigen() {
-        console.log("Rezepte werden angezeigt");
-        console.log(fetchUrl);
         let response = await fetch(fetchUrl);
-        console.log("Response: " + response);
+        //console.log("Response: " + response);
         let rezepte = await response.json();
-        console.log(rezepte);
         let selectElement = document.querySelector(".ausgabe");
         for (let rezeptCollection of rezepte) {
             let rezept = document.createElement("div");
@@ -21,7 +18,7 @@ var Endabgabe;
             let löschButton = document.createElement("button");
             löschButton.textContent = "Löschen";
             rezept.appendChild(löschButton);
-            löschButton.addEventListener("click", () => löscheRezept(rezeptCollection.titel));
+            löschButton.addEventListener("click", löscheRezept);
             let zutatenSchrift = document.createElement("h3");
             zutatenSchrift.textContent = "Zutaten";
             rezept.appendChild(zutatenSchrift);
@@ -36,9 +33,9 @@ var Endabgabe;
             rezept.appendChild(zubereitung);
         }
     }
-    async function löscheRezept(rezeptName) {
+    async function löscheRezept() {
         //Rezept aus Favoriten löschen
-        console.log("Aus Favoriten entfernt");
+        alert("Rezept aus Favoriten entfernt");
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=favoriten.js.map

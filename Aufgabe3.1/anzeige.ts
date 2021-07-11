@@ -6,8 +6,8 @@ namespace Endabgabe {
 
     rezepteAnzeigen();
     async function rezepteAnzeigen(): Promise<void> {
-        console.log("Rezepte werden angezeigt");
-        console.log(fetchUrl);
+        //console.log("Rezepte werden angezeigt");
+        //console.log(fetchUrl);
 
         interface Rezept {
             "titel": string;
@@ -25,7 +25,7 @@ namespace Endabgabe {
         }
         
         let response: Response = await fetch(fetchUrl);
-        console.log("Response: " + response);
+        
         let rezepte: Rezept[] = await response.json();
         console.log(rezepte);
 
@@ -43,7 +43,7 @@ namespace Endabgabe {
             let favButton: HTMLElement = document.createElement("button");
             favButton.textContent = "Favorisieren";
             rezept.appendChild(favButton);
-            //favButton.addEventListener("click", () => favorisiereRezept(rezeptCollection.user, rezeptCollection.titel));
+            favButton.addEventListener("click", favorisiereRezept);
 
             let zutatenSchrift: HTMLElement = document.createElement("h3");
             zutatenSchrift.textContent = "Zutaten";
@@ -63,7 +63,8 @@ namespace Endabgabe {
         }
     }
 
-    async function favorisiereRezept(rezeptAutor: string, rezeptName: string): Promise<void> {
+    async function favorisiereRezept(): Promise<void> {
         //Rezept zu Favoriten hinzufügen
+        alert("Zu Favoriten hinzugefügt");
     }
 }
