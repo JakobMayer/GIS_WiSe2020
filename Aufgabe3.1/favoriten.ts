@@ -39,7 +39,7 @@ namespace Endabgabe {
             let löschButton: HTMLElement = document.createElement("button");
             löschButton.textContent = "Löschen";
             rezept.appendChild(löschButton);
-            löschButton.addEventListener("click", löscheRezept);
+            löschButton.addEventListener("click", () => löscheRezept(rezeptCollection["titel"]));
 
             let zutatenSchrift: HTMLElement = document.createElement("h3");
             zutatenSchrift.textContent = "Zutaten";
@@ -59,8 +59,8 @@ namespace Endabgabe {
         }
     }
 
-    async function löscheRezept(): Promise<void> {
+    async function löscheRezept(titel: string): Promise<void> {
         //Rezept aus Favoriten löschen
-        alert("Rezept aus Favoriten entfernt");
+        alert(titel + " aus Favoriten entfernt");
     }
 }

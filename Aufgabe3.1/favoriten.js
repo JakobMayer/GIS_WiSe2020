@@ -18,7 +18,7 @@ var Endabgabe;
             let löschButton = document.createElement("button");
             löschButton.textContent = "Löschen";
             rezept.appendChild(löschButton);
-            löschButton.addEventListener("click", löscheRezept);
+            löschButton.addEventListener("click", () => löscheRezept(rezeptCollection["titel"]));
             let zutatenSchrift = document.createElement("h3");
             zutatenSchrift.textContent = "Zutaten";
             rezept.appendChild(zutatenSchrift);
@@ -33,9 +33,9 @@ var Endabgabe;
             rezept.appendChild(zubereitung);
         }
     }
-    async function löscheRezept() {
+    async function löscheRezept(titel) {
         //Rezept aus Favoriten löschen
-        alert("Rezept aus Favoriten entfernt");
+        alert(titel + " aus Favoriten entfernt");
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=favoriten.js.map

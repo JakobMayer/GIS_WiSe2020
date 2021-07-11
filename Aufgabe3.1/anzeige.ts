@@ -43,14 +43,14 @@ namespace Endabgabe {
             let favButton: HTMLElement = document.createElement("button");
             favButton.textContent = "Favorisieren";
             rezept.appendChild(favButton);
-            favButton.addEventListener("click", favorisiereRezept);
+            favButton.addEventListener("click", () => favorisiereRezept(rezeptCollection["titel"]));
 
             let zutatenSchrift: HTMLElement = document.createElement("h3");
             zutatenSchrift.textContent = "Zutaten";
             rezept.appendChild(zutatenSchrift);
 
             let zutaten: HTMLElement = document.createElement("p");
-            zutaten.innerText = rezeptCollection.zutat1 + " " + rezeptCollection.zutat2 + " " + rezeptCollection.zutat3 + " " + rezeptCollection.zutat4 + " " + rezeptCollection.zutat5 + " " + rezeptCollection.zutat6 + " " + rezeptCollection.zutat7 + " " + rezeptCollection.zutat8 + " " + rezeptCollection.zutat9 + " " + rezeptCollection.zutat10;
+            zutaten.innerText = rezeptCollection.zutat1 + "  " + rezeptCollection.zutat2 + "  " + rezeptCollection.zutat3 + "  " + rezeptCollection.zutat4 + "  " + rezeptCollection.zutat5 + "  " + rezeptCollection.zutat6 + "  " + rezeptCollection.zutat7 + "  " + rezeptCollection.zutat8 + "  "  + rezeptCollection.zutat9 + "  " + rezeptCollection.zutat10;
             rezept.appendChild(zutaten);
             
             let zubereitungsSchrift: HTMLElement = document.createElement("h3");
@@ -63,8 +63,8 @@ namespace Endabgabe {
         }
     }
 
-    async function favorisiereRezept(): Promise<void> {
+    async function favorisiereRezept(titel: string): Promise<void> {
         //Rezept zu Favoriten hinzufügen
-        alert("Zu Favoriten hinzugefügt");
+        alert(titel + " zu Favoriten hinzugefügt");
     }
 }

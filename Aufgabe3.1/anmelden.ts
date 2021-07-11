@@ -18,7 +18,8 @@ async function submitToServer(_event: Event): Promise<void> {
     
     let userName: string = (<HTMLInputElement><unknown>document.getElementById("userName")).value; 
     localStorage.clear();
-    localStorage.setItem("username", userName);
+    localStorage.setItem("userName", userName);
+    //console.log(localStorage.getItem("userName"));
 
     //Antwort auf der Seite ausgeben
     let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");

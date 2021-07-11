@@ -13,7 +13,8 @@ async function submitToServer(_event) {
     let responseText = await response.text();
     let userName = document.getElementById("userName").value;
     localStorage.clear();
-    localStorage.setItem("username", userName);
+    localStorage.setItem("userName", userName);
+    //console.log(localStorage.getItem("userName"));
     //Antwort auf der Seite ausgeben
     let selectElement = document.querySelector(".ausgabe");
     let paragraph = document.createElement("div");
