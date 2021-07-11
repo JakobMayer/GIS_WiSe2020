@@ -43,6 +43,7 @@ namespace Endabgabe {
             let favButton: HTMLElement = document.createElement("button");
             favButton.textContent = "Favorisieren";
             rezept.appendChild(favButton);
+            //favButton.addEventListener("click", () => favorisiereRezept(rezeptCollection.user, rezeptCollection.titel));
 
             let zutatenSchrift: HTMLElement = document.createElement("h3");
             zutatenSchrift.textContent = "Zutaten";
@@ -60,5 +61,9 @@ namespace Endabgabe {
             zubereitung.textContent = rezeptCollection["zubereitung"];
             rezept.appendChild(zubereitung);
         }
+    }
+
+    async function favorisiereRezept(rezeptAutor: string, rezeptName: string): Promise<void> {
+        //Rezept zu Favoriten hinzufügen
     }
 }

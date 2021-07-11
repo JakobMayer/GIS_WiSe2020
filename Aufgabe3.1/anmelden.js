@@ -11,11 +11,11 @@ async function submitToServer(_event) {
     //console.log(url);
     let response = await fetch(fetchUrl);
     let responseText = await response.text();
-    console.log(response);
-    console.log("Response Text: " + responseText);
+    let userName = document.getElementById("userName").value;
+    localStorage.clear();
+    localStorage.setItem("username", userName);
     //Antwort auf der Seite ausgeben
     let selectElement = document.querySelector(".ausgabe");
-    //selectElement.appendChild(document.createTextNode(responseText));
     let paragraph = document.createElement("div");
     paragraph.innerText = responseText;
     selectElement.appendChild(paragraph);

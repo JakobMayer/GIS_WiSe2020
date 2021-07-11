@@ -51,8 +51,6 @@ var Endabgabe;
                 _response.write(await anmelden(data.email, data.passwort));
             }
             else if (q.pathname == "/anzeige") {
-                //let accounts: User[] = await accountsAnzeigen();
-                //_response.write(JSON.stringify(accounts));
                 let rezepte = await rezeptAnzeigen();
                 _response.write(JSON.stringify(rezepte));
             }
@@ -71,8 +69,11 @@ var Endabgabe;
                     "zutat10": data.zutat10,
                     "zubereitung": data.zubereitung
                 };
-                //await rezeptCollection.insertOne(rezept);
                 _response.write(await registriereRezept(rezept));
+            }
+            else if (q.pathname == "(favoriten") {
+                let rezepte = await rezeptAnzeigen();
+                _response.write(JSON.stringify(rezepte));
             }
         }
         _response.end();

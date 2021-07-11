@@ -22,6 +22,7 @@ var Endabgabe;
             let favButton = document.createElement("button");
             favButton.textContent = "Favorisieren";
             rezept.appendChild(favButton);
+            //favButton.addEventListener("click", () => favorisiereRezept(rezeptCollection.user, rezeptCollection.titel));
             let zutatenSchrift = document.createElement("h3");
             zutatenSchrift.textContent = "Zutaten";
             rezept.appendChild(zutatenSchrift);
@@ -35,6 +36,9 @@ var Endabgabe;
             zubereitung.textContent = rezeptCollection["zubereitung"];
             rezept.appendChild(zubereitung);
         }
+    }
+    async function favorisiereRezept(rezeptAutor, rezeptName) {
+        //Rezept zu Favoriten hinzufügen
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=anzeige.js.map

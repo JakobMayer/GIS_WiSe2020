@@ -95,8 +95,6 @@ export namespace Endabgabe {
 
 
             else if (q.pathname == "/anzeige") {
-                //let accounts: User[] = await accountsAnzeigen();
-                //_response.write(JSON.stringify(accounts));
 
                 let rezepte: Rezept[] = await rezeptAnzeigen();
                 _response.write(JSON.stringify(rezepte));
@@ -119,8 +117,13 @@ export namespace Endabgabe {
                     "zutat10": data.zutat10,
                     "zubereitung": data.zubereitung
                 };
-                //await rezeptCollection.insertOne(rezept);
                 _response.write (await registriereRezept(rezept));
+            }
+
+
+            else if (q.pathname == "(favoriten") {
+                let rezepte: Rezept[] = await rezeptAnzeigen();
+                _response.write(JSON.stringify(rezepte));
             }
 
         }

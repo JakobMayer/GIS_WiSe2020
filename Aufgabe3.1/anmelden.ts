@@ -15,12 +15,13 @@ async function submitToServer(_event: Event): Promise<void> {
 
     let response: Response = await fetch(fetchUrl);
     let responseText: string = await response.text();
-    console.log(response);
-    console.log("Response Text: " + responseText);
+    
+    let userName: string = (<HTMLInputElement><unknown>document.getElementById("userName")).value; 
+    localStorage.clear();
+    localStorage.setItem("username", userName);
 
     //Antwort auf der Seite ausgeben
     let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
-    //selectElement.appendChild(document.createTextNode(responseText));
    
     let paragraph: HTMLDivElement = document.createElement("div");
     paragraph.innerText = responseText;
