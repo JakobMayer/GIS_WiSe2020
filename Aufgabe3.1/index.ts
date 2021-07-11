@@ -1,5 +1,4 @@
 namespace registrieren {
-    //let registerForm: HTMLFormElement = <HTMLFormElement>document.getElementById("register-form");
 
     let anmeldeButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("send-button");
     anmeldeButton.addEventListener("click", submitToServer);

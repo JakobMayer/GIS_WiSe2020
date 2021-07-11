@@ -1,7 +1,6 @@
 "use strict";
 var registrieren;
 (function (registrieren) {
-    //let registerForm: HTMLFormElement = <HTMLFormElement>document.getElementById("register-form");
     let anmeldeButton = document.getElementById("send-button");
     anmeldeButton.addEventListener("click", submitToServer);
     let registerUrl = "https://gisapplication.herokuapp.com/";

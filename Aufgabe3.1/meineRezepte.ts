@@ -12,8 +12,6 @@ namespace meineRezepte {
     let löschen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("löschen-button");
     erstellen.addEventListener("click", handleLöschen);
     */
-    
-    console.log(localStorage.getItem("userName"));
    
     async function submitToServer(_event: Event): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);

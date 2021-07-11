@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Endabgabe = void 0;
-//Http Modul importieren
 const Http = require("http");
 const Url = require("url");
 const Mongo = require("mongodb");
@@ -11,7 +10,6 @@ var Endabgabe;
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
-    //Server erstellen
     let server = Http.createServer();
     server.addListener("request", handleRequest);
     server.addListener("listening", handleListen);

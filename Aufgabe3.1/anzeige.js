@@ -10,7 +10,6 @@ var Endabgabe;
         //console.log(fetchUrl);
         let response = await fetch(fetchUrl);
         let rezepte = await response.json();
-        console.log(rezepte);
         let selectElement = document.querySelector(".ausgabe");
         for (let rezeptCollection of rezepte) {
             let rezept = document.createElement("div");

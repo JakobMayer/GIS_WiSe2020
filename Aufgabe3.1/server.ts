@@ -1,5 +1,4 @@
 
-//Http Modul importieren
 import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
@@ -13,7 +12,6 @@ export namespace Endabgabe {
         port = 8100;
 
     
-    //Server erstellen
     let server: Http.Server = Http.createServer();
     server.addListener("request", handleRequest);
     server.addListener("listening", handleListen);

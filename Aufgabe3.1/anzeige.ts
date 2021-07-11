@@ -27,8 +27,7 @@ namespace Endabgabe {
         let response: Response = await fetch(fetchUrl);
         
         let rezepte: Rezept[] = await response.json();
-        console.log(rezepte);
-
+        
         let selectElement: HTMLDivElement = <HTMLDivElement>document.querySelector(".ausgabe");
 
         for (let rezeptCollection of rezepte) {
