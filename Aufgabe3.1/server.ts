@@ -164,7 +164,7 @@ export namespace Endabgabe {
 
     //rezept hinzufügen
     async function registriereRezept(_rezept: Rezept): Promise<string> {
-        let countDocuments: number = await rezeptCollection.countDocuments({ "titrl": _rezept.titel });
+        let countDocuments: number = await rezeptCollection.countDocuments({ "titel": _rezept.titel });
 
         if (countDocuments > 0) {
             return "Rezept bereits vorhanden";

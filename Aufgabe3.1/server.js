@@ -106,7 +106,7 @@ var Endabgabe;
     }
     //rezept hinzufügen
     async function registriereRezept(_rezept) {
-        let countDocuments = await rezeptCollection.countDocuments({ "titrl": _rezept.titel });
+        let countDocuments = await rezeptCollection.countDocuments({ "titel": _rezept.titel });
         if (countDocuments > 0) {
             return "Rezept bereits vorhanden";
         }
